@@ -14,8 +14,8 @@
     </div>
 </div>
 <div class="panel-body">
-    <!-- Форма новой задачи -->
-    <form method='post' action="{{ route('/home') }}">
+    <!-- Форма новой группы -->
+    <form method='post' action="">
         {{ csrf_field() }}
         {{method_field('put')}}                                     
         <div class="form-group">
@@ -27,7 +27,7 @@
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
                 <button type="submit" clas="btn btn-default bg-succes">
-                    <i class="fa fa-plus"></i>Добавить группу
+                    <i class="fa fa-plus"></i> Создать группу
                 </button>
             </div>
     </form>
