@@ -15,9 +15,9 @@
 </div>
 <div class="panel-body">
     <!-- Форма новой группы -->
-    <form method='post' action="">
+    <form method='post' action="{{ route('') }}">
         {{ csrf_field() }}
-        {{method_field('put')}}                                     
+        {{method_field('get')}}                                     
         <div class="form-group">
             <label for="task" class="col-sm-3 control_label"></label>
             <div class="col-sm-6">
