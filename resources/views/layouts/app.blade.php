@@ -30,6 +30,21 @@
         #createGroup{
             float:left;
         }
+        #participants{
+            float:right;
+            width: 15%;
+            margin-right: 10px;
+            position: relative;
+        }
+        #aboutGroup{
+            width: 80%;
+        }
+        #exitGroup{
+            float:right;
+            position: relative;
+            top:-40px;
+            
+        }
     </style>
 </head>
 <body id="app-layout">
