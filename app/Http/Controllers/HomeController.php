@@ -23,14 +23,15 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request) {
+    public function index(Request $request,Group $groups) {
 
-        $user = $request->user();
-        $teach_groups = $user->teach_groups();
-        foreach ($teach_groups as $group) {
-            echo $group->name;
-        }
-        exit();
+//        $user = $request->user();
+//        $teach_groups = $user->teach_groups();
+//        foreach ($teach_groups as $group) {
+//            echo $group->name;
+//        }
+//       $
+        $groups = Group::All();
         return view('groups.index', [
             'groups' => $groups,
         ]);

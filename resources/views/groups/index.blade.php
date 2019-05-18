@@ -28,7 +28,7 @@
                 <div class="panel-heading">Мои:</div>
            
                 <ul>
-                    <li>{{$user->id}}</li>
+                    <li></li>
                 </ul>
              
                 <div class="panel-body">
