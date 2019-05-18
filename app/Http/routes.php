@@ -1,5 +1,7 @@
 <?php
-
+use Illuminate\Http\Request;
+use App\UserModel;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,9 +14,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $users = User::all();
+    return view('welcome',['users'=>$users]);
 });
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
