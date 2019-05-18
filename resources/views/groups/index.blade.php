@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
- <form>
+<form action="{{route('groups_create')}}">
         <div class="form-group" id="createGroup">
         <div class="col-sm-offset-3 col-sm-6">
           <button type="submit" class="btn btn-default">

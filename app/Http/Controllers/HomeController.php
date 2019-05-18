@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Groups;
+use Illuminate\Support\Facades\DB;
+use App\Group;
 
 class HomeController extends Controller
 {
@@ -18,17 +19,21 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-         $groups = Groups::all();
-        return view('groups.index', [
-            'groups' => $groups,
+    public function index(){
+        $groups = Group::all();
+        return view('groups.index',[
+            'groups'=>$groups,
         ]);
-        
     }
+    
+    public function addgroup(Group $group){    
+        return redirect(route('groups_create'));
+    }   
+    
+    public function destroy(Request $request, Group $groups){
+        $this->authorise('destroy',$group);
+        $groups->delete();
+        return redirect(route('home.index'));
+    }
+       
 }
