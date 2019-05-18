@@ -29,7 +29,7 @@
         <?php endif;?>
 
     </div>
-    <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
+<!--    <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
         <label for="password" class="control-label"><b>password:</b></label>
         <input type="text" name="password" placeholder="Please enter your password here" class="form-control" value="{{ $user->password }}"/>
 
@@ -39,7 +39,7 @@
         </span>
         <?php endif;?>
 
-    </div>
+    </div>-->
     <div class="form-group">
         <button type="submit" class="btn btn-default"> Save </button>
     </div>
