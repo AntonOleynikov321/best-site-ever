@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('cabinet.index');
+    return view('welcome');
 });
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
