@@ -16,7 +16,13 @@ use App\User;
 Route::get('/', function () {
     $users = User::all();
     return view('welcome',['users'=>$users]);
-});
+})->name('users_index');
+
+Route::delete('/users/{user}',function(User $user) {
+        $user->delete();
+        return redirect(route('users_index'));
+    })->name('users_destroy');
+    
 Route::auth();
 
 Route::get('/', 'HomeController@index');
