@@ -10,6 +10,9 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
+                <div class="edit-body">
+                    <a href=""
+                </div>
             </div>
         </div>
     </div>
