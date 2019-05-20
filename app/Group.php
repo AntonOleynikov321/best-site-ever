@@ -9,7 +9,7 @@ class Group extends Model {
     protected $fillable = ['name'];
 
     public function user() {
-        return $this->belongsTo(User::class);
+        return $this->hasMany('App\User');
     }
 
 }
