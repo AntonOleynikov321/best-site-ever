@@ -18,15 +18,15 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request) {
-        $this->validate($request, [
-            'name' => 'required|max:255|unique:users',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|password|max:255|unique:users',
-        ]);
-        $input = $request->only('name','email','password');
         $user = Auth::user();
-        $user->update($input);
+    $this->validate($request, [
+        'name' => 'required|max:255|unique:users,name,'.$user->id,
+        'email' => 'required|email|max:255|unique:users,email,'.$user->id,
+        'password' => 'required|password|max:255|unique:users,password,'.$user->id,
+    ]);
+    $input = $request->only('name','email');
+    $user->update($input);
 
-        return back();
+    return back();
     }
 }
