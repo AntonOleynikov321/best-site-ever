@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 
+
 class ProfileController extends Controller
 {
     
@@ -24,7 +25,7 @@ class ProfileController extends Controller
         'email' => 'required|email|max:255|unique:users,email,'.$user->id,
         'password' => 'required|password|max:255|unique:users,password,'.$user->id,
     ]);
-    $input = $request->only('name','email');
+    $input = $request->only('name','email','password');
     $user->update($input);
 
     return back();

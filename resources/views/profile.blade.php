@@ -29,6 +29,18 @@
         <?php endif;?>
 
     </div>
+    </div>
+    <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
+        <label for="password" class="control-label"><b>Password:</b></label>
+        <input type="text" name="password" placeholder="Please enter your password here" class="form-control" value="{{ $user->password }}"/>
+
+        <?php if ($errors->has('email')) :?>
+        <span class="help-block">
+            <strong>{{$errors->first('password')}}</strong>
+        </span>
+        <?php endif;?>
+
+    </div>
     
     
     <div class="form-group">
