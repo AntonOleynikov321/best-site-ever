@@ -45,6 +45,18 @@
             top:-40px;
             
         }
+        #addHomework{
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #addHomework form{
+            padding:  5px 30px;
+            text-align: center;    
+        }
+        #addHomework textarea{
+            width: 100%;
+        }
     </style>
 </head>
 <body id="app-layout">

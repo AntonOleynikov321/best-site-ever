@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Homework extends Model
 {
-    protected $fillable = ['name'];
+    //protected $fillable = ['name'];
 }

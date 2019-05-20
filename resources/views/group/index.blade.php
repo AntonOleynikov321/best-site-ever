@@ -53,7 +53,7 @@
                     <button type="submit" class="btn btn-success cases" id="btnMaterials" style="float:right"> 
                         <i class="fa fa-plus">Добавить лецию</i> 
                     </button>
-                    <a href="{{route('createHomework')}}">  <button type="submit" class="btn btn-success cases" id="btnHomework" style="display:none; float:right">
+                    <a href="{{route('create.homework')}}">  <button type="submit" class="btn btn-success cases" id="btnHomework" style="display:none; float:right">
                             <i class="fa fa-plus">Добавить домашнее задание</i> 
                         </button>
                     </a>
@@ -82,7 +82,7 @@
                                     <!--</form>-->
                                 </td>
                                 <td>
-                                    <!--                                    <form>-->
+                                    <!--<form>-->
                                     <button type="submit" class="btn btn-danger">
                                         <i class="fa fa-trash"></i> Удалить
                                     </button>
@@ -95,13 +95,13 @@
                     <!--                    endif-->
                 </div>
                 <div id="Homework" class="cases" style="display:none">
-                    @if (count($homeworks) >                                            0)
-                    <table class="table tab                                            le-striped task-table">
+                    @if (count($homeworks) >0)
+                    <table class="table table-striped task-table">
                         <tbody>
                             @foreach ($homeworks as $homework)
                             <tr>
                                 <td class="table-text">
-                                    <div><a h                                                            ref="#">{{ $homework->name }}</a></div                                                            >
+                                    <div><a href="#">{{ $homework->name }}</a></div                                                            >
                                 </td>
                                 <td>
                                     <!--                                    <form>-->
@@ -118,11 +118,13 @@
                                     <!--</form>-->
                                 </td>
                                 <td>
-                                    <!--                                    <form>-->
+                                    <form action="{{route('destroy.homework')}}" method="POST">
+                                      {{ csrf_field() }}
+                                       {{ method_field('DELETE') }}
                                     <button type="submit" class="btn btn-danger">
                                         <i class="fa fa-trash"></i> Удалить
                                     </button>
-                                    <!--</form>-->
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
