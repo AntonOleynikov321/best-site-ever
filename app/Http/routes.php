@@ -1,6 +1,5 @@
 <?php
 use Illuminate\Http\Request;
-use App\UserModel;
 use App\User;
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +12,13 @@ use App\User;
 |
 */
 
-Route::get('/', function () {
+Route::get('/users', function () {
     $users = User::all();
-    return view('welcome',['users'=>$users]);
+    return view('cabinet.index',['users'=>$users]);
 })->name('users_index');
 
-Route::delete('/users/{user}',function(User $user) {
-        $user->delete();
+Route::delete('/users/{user}',function(User $users) {
+        $users->delete();
         return redirect(route('users_index'));
     })->name('users_destroy');
     

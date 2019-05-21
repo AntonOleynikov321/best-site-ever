@@ -4,13 +4,21 @@
 <div id="participants" class="panel panel-default">
     <div class="panel-heading">Участники: 
 	<!--        TODO добавление участника-->
-        <button type="submit" class="btn btn-default"> 
-            <i class="fa fa-plus"></i> 
-	</button></div>
+	<form action="{{route('add_student.add')}}">
+	    <button type="submit" class="btn btn-default"> 
+		<i class="fa fa-plus"></i> 
+	    </button>
+	</form>
+    </div>
     <ul>
         <li><a href="#"><h4>*Создатель группы*</h4></a></li>
 	@foreach ($users as $user)
-        <li><p>{{$user->name}}</p><a href="{{route('users_destroy', $user->id)}}">Удалить</a></li>
+        <li><p>{{$user->group_id}}</p>
+	    <form action="{{ route('users_destroy',$user->id) }}" method="POST" class="form-horizontal">
+		{{ csrf_field() }}
+		{{ method_field('DELETE') }}
+		<input type="submit" value="delete"/>
+	    </form></li>
 	@endforeach
     </ul>
 </div>
