@@ -4,26 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Group;
+use App\User;
 
-class HomeController extends Controller
-{
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+class HomeController extends Controller {
+
+    public function __construct() {
         $this->middleware('auth');
     }
-    
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Requests $request)
-    {
-        return view('cabinet.index');
+
+    public function index(Request $request) {
+
+        $user = $request->user();
+        $teachers=$user->teach_groups;
+        $students=$user->student_groups;
+        
+
+        return view('groups.index', [
+            'teachers' => $teachers,
+            'students' => $students,
+        ]);
     }
+
 }
