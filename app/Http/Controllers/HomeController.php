@@ -23,11 +23,34 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Group $groups) {
+    public function index(Request $request) {
+        //поиск учителя по группе
+//        $group=Group::find(3);
+//        $owner=$group->owner;
+//        var_dump($owner);
+//        exit();
+        
         $user = $request->user();
-        $groups = Group::all()->where('owner_id', $user->id);
+        $teachers=$user->teach_groups;
+        $students=$user->student_groups;
+        
+//        $group=Group::find(1);
+//        $owner=$group->students;
+//        foreach ($owner as $group) {
+//            echo $group->name.'<br/>';
+//        }
+//        exit();
+//        $user = $request->user();
+//        $groups=$user->student_groups;
+//        foreach ($groups as $group) {
+//            echo $group->name.'<br/>';
+//        }
+//        exit();
+//        $groups = Group::all()->where('owner_id', $user->id);
+//        $groups_student = Group::has();
         return view('groups.index', [
-            'groups' => $groups,
+            'teachers' => $teachers,
+            'students' => $students,
         ]);
     }
 
