@@ -3,16 +3,17 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Group;
 
-class User extends Authenticatable {
-
+class User extends Authenticatable
+{
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-	'name', 'login', 'last_name', 'email', 'password',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -21,22 +22,15 @@ class User extends Authenticatable {
      * @var array
      */
     protected $hidden = [
-	'password', 'remember_token',
+        'password', 'remember_token',
     ];
-
+    
     public function teach_groups() {
-	return $this->hasMany('App\Group', 'owner_id', 'id');
+        return $this->hasMany(Group::class,'owner_id');
     }
-
+    
     public function student_groups() {
-	
+        return $this->belongsToMany(Group::class);
     }
-
-    public function invite(string $login) {
-	Invitation::create([
-	    'user_id' => auth()->user()->id,
-	    'login' => $login
-	]);
-    }
-
 }
+
