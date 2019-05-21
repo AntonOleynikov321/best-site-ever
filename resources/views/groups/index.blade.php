@@ -26,9 +26,11 @@
             </div>
             <div class="panel panel-default" >
                 <div class="panel-heading">Мои:</div>
+           
                 <ul>
                     <li></li>
                 </ul>
+             
                 <div class="panel-body">
                     
                 </div>
