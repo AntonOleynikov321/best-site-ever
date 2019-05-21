@@ -119,11 +119,11 @@
                                 </td>
                                 <td>
                                     <form action="{{route('destroy.homework')}}" method="POST">
-                                      {{ csrf_field() }}
-                                       {{ method_field('DELETE') }}
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fa fa-trash"></i> Удалить
-                                    </button>
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fa fa-trash"></i> Удалить
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
@@ -147,5 +147,5 @@
             </div>
         </div>
     </div>
-
-    @endsection
+</div>
+@endsection
