@@ -54,10 +54,10 @@ class HomeController extends Controller {
         return redirect(route('home_index'));
     }
 
-//    public function destroy(Request $request, Group $groups) {
-//        $this->authorise('destroy', $group);
-//        $groups->delete();
-//        return redirect(route('home_index'));
-//    }
+    public function deleteGroup( Group $groups) {
+//        $this->authorise('destroy', $groups);
+        $groups->delete();
+        return redirect(route('home_index'));
+    }
 
 }

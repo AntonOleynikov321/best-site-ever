@@ -22,3 +22,5 @@ Route::get('/', 'HomeController@index')->name('home_index');
 Route::get('/groups/create','HomeController@addGroup')->name('groups_add');
 
 Route::put('/','HomeController@createGroup')->name('groups_create');
+
+Route::delete('/{groups}','HomeController@deleteGroup')->name('groups_destroy');
