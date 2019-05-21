@@ -42,7 +42,7 @@ Route::get('/{group}/forums/create','ForumsController@create');
 
 Route::post('/{group}/forums','ForumsController@store');
 
-Route::delete('/forums/forum','ForumsController@destroy');
+Route::delete('/forums/{forum}','ForumsController@destroy');
 
 Route::get('/{group}/hws/create','HwsController@create');
 
