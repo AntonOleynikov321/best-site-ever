@@ -44,10 +44,29 @@ class GroupController extends Controller {
         return redirect(route('group.index'));
     }
     
-    public function deleteHomework(Homework $homework) {
-        var_dump($homework->id);
-//        $homework->id->delete;
-//        return redirect(route('group.index'));
+    public function deleteHomework(Homework $homework, Request $request) {
+        $homework->id=$request->id;
+        $homework->delete();
+        return redirect(route('group.index'));
+    }
+    public function editHomework(Homework $homework) {
+        return view('group.editHomework', [
+            'homework' => $homework,
+        ]);
+    }
+    
+    public function updateHomework(Homework $homework, Request $request) {
+        $homework->name = $request->name;
+        $homework->text=$request->text;
+        $homework->finish=$request->finish;
+        $homework->save();
+        return redirect(route('group.index'));
+    }
+    
+    public function showHomework(Homework $homework) {
+         return view('group.showHomework', [
+            'homework' => $homework,
+        ]);
     }
 
 }

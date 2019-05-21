@@ -22,7 +22,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Requests $request)
+    public function index()
     {
         return view('cabinet.index');
     }
