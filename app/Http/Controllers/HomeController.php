@@ -32,7 +32,7 @@ class HomeController extends Controller {
 //        }
 //       $
         $groups = Group::All();
-        return view('groups.index', [
+        return view('cabinet.index', [
             'groups' => $groups,
         ]);
     }
