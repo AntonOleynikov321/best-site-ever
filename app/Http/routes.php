@@ -28,7 +28,7 @@ Route::get('/', 'HomeController@index');
 
 Route::resource('groups','GroupsController');
 
-Route::get('/groups/group','GroupsController@show');
+Route::get('/groups/{group}','GroupsController@show');
 
 Route::get('/groups/create','GroupsController@create');
 
