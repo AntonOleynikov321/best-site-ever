@@ -23,7 +23,7 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,Group $groups) {
+    public function index() {
 
 //        $user = $request->user();
 //        $teach_groups = $user->teach_groups();
