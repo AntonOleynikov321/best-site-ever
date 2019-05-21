@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use App\Group;
 
@@ -32,13 +30,13 @@ class GroupsController extends Controller
         ]);
     }
 
-    public function addGroup(Group $groups) {
+    public function create(Group $groups) {
         return view('groups.create', [
             'groups' => $groups,
         ]);
     }
 
-    public function createGroup(Request $request, Group $groups) {
+    public function show(Request $request, Group $groups) {
         $this->validate($request, [
             'name' => 'required|max:100',
         ]);
@@ -48,7 +46,7 @@ class GroupsController extends Controller
         return redirect(route('home_index'));
     }
 
-    public function deleteGroup( Group $groups) {
+    public function delete( Group $groups) {
         $groups->delete();
         return redirect(route('home_index'));
     }
