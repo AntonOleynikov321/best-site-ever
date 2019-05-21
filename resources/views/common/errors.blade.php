@@ -1,7 +1,7 @@
 @if (count($errors) > 0)
-  <!-- РЎРїРёСЃРѕРє РѕС€РёР±РѕРє С„РѕСЂРјС‹ -->
+  <!-- Список ошибок формы -->
   <div class="alert alert-danger">
-    <strong>РЈРїСЃ! Р§С‚Рѕ-С‚Рѕ РїРѕС€Р»Рѕ РЅРµ С‚Р°Рє!</strong>
+    <strong>Упс! Что-то пошло не так!</strong>
     <br><br>
     <ul>
       @foreach ($errors->all() as $error)
