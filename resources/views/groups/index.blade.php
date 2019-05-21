@@ -14,7 +14,7 @@
 
         <div class="col-md-10 col-md-offset-1" id="groups">
             <div class="panel panel-default" >
-                <div class="panel-heading">Учусь</div>
+                <div class="panel-heading">Как студент:</div>
                
                  @foreach ($students as $student)
                 <ul>
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="panel panel-default" >
-                <div class="panel-heading">Учу</div>
+                <div class="panel-heading">Как учитель:</div>
 
 
                 @foreach ($teachers as $teacher)
