@@ -24,12 +24,6 @@ class HomeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-
-//        $user = $request->user();
-//        $teach_groups = $user->teach_groups();
-//        foreach ($teach_groups as $group) {
-//            echo $group->name;
-//        }
         $groups = Group::All();
         return view('groups.index', [
             'groups' => $groups,
