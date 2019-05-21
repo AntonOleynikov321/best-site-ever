@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
-use App\Group;
-=======
 use App\Group;
 use App\User;
 
 class HomeController extends Controller {
->>>>>>> 6d9d1bb7061286755b18ea1c3fd67dbd56ce6b6b
 
     /**
      * Create a new controller instance.
@@ -23,31 +19,12 @@ class HomeController extends Controller {
         $this->middleware('auth');
     }
 
-<<<<<<< HEAD
-    public function index(){
-        $groups = Group::all();
-        return view('groups.index',[
-            'groups'=>$groups,
-        ]);
-    }
-    
-    public function addgroup(Group $group){    
-        return redirect(route('groups_create'));
-    }   
-    
-    public function destroy(Request $request, Group $groups){
-        $this->authorise('destroy',$group);
-        $groups->delete();
-        return redirect(route('home.index'));
-    }
-       
-=======
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,Group $groups) {
+    public function index(Request $request, Group $groups) {
 
 //        $user = $request->user();
 //        $teach_groups = $user->teach_groups();
@@ -61,5 +38,26 @@ class HomeController extends Controller {
         ]);
     }
 
->>>>>>> 6d9d1bb7061286755b18ea1c3fd67dbd56ce6b6b
+    public function addGroup(Group $groups) {
+        return view('groups.create', [
+            'groups' => $groups,
+        ]);
+    }
+
+    public function createGroup(Request $request, Group $groups) {
+        $this->validate($request, [
+            'name' => 'required|max:100',
+        ]);
+        $groups = new Group();
+        $groups->name = $request->name;
+        $groups->save();
+        return redirect(route('home_index'));
+    }
+
+//    public function destroy(Request $request, Group $groups) {
+//        $this->authorise('destroy', $group);
+//        $groups->delete();
+//        return redirect(route('home_index'));
+//    }
+
 }
