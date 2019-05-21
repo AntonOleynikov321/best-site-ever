@@ -11,16 +11,50 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::auth();
 
-Route::get('/', 'HomeController@index')->name('home_index');
+Route::get('/', 'HomeController@index');
 
-Route::get('/groups/create','HomeController@addGroup')->name('groups_add');
+Route::resource('groups','GroupsController');
 
-Route::put('/','HomeController@createGroup')->name('groups_create');
+Route::get('/groups/group','GroupsController@show');
 
-Route::delete('/{groups}','HomeController@deleteGroup')->name('groups_destroy');
+Route::get('/groups/create','GroupsController@create');
+
+Route::post('/groups','GroupsController@store');
+
+Route::delete('/groups/{group}','GroupsController@destroy');
+
+Route::post('/invites','InvitesController@student');
+
+Route::get('/{group}/forums/create','ForumsController@create');
+
+Route::post('/{group}/forums','ForumsController@store');
+
+Route::delete('/forums/forum','ForumsController@destroy');
+
+Route::get('/{group}/hws/create','HwsController@create');
+
+Route::post('/{group}/hws','HwsController@store');
+
+Route::delete('/hws/{hw}','HwsController@destroy');
+
+Route::get('/{group}/materials/create','MaterialsController@create');
+
+Route::post('/{group}/materials','MaterialsController@store');
+
+Route::delete('/{material}','MaterialsController@destroy');
+
+Route::post('/{hw}','HwsController@upload');
+
+Route::post('/invites/confirm','InvitesController@confirm');
+
+Route::get('/hws/{hw}','HwsController@show');
+
+Route::get('/forums/{forum}','ForumsController@show');
+
+Route::get('/{group}/materials','MaterialsController@show');
