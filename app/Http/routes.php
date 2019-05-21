@@ -16,3 +16,5 @@ Route::get('/group','GroupController@index')->name('group.index');
  Route::post('/group','GroupController@storeHomework')->name('store.homework');
  
  Route::delete('/group/{homework}','GroupController@deleteHomework')->name('destroy.homework');
+ 
+ Route::get('/createArticle','ArticleController@createArticle')->name('create.article');

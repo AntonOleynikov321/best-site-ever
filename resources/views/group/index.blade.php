@@ -47,17 +47,23 @@
         </div>
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default" >
-                <div class="panel-heading"><button class="w3-bar-item w3-button" onclick="openCase('Materials')">Материалы</button>
+                <div class="panel-heading">
+                    <button class="w3-bar-item w3-button" onclick="openCase('Materials')">Материалы</button>
                     <button class="w3-bar-item w3-button" onclick="openCase('Homework')">Домашнее задание</button>
                     <!--TODO форма добавления материалов-->
+                    
                     <button type="submit" class="btn btn-success cases" id="btnMaterials" style="float:right"> 
-                        <i class="fa fa-plus">Добавить лецию</i> 
+                        <a href="{{route('create.article')}}">
+                            <i class="fa fa-plus">Добавить лецию</i>
+                        </a>                        
                     </button>
+                    
                     <a href="{{route('create.homework')}}">  <button type="submit" class="btn btn-success cases" id="btnHomework" style="display:none; float:right">
                             <i class="fa fa-plus">Добавить домашнее задание</i> 
                         </button>
                     </a>
                 </div>
+                
                 <div id="Materials" class="cases" >
                     <!--if                                    -->
                     <table class="table table-striped task-table">
