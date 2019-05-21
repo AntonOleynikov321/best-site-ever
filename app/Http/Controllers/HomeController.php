@@ -50,4 +50,9 @@ class HomeController extends Controller {
         return redirect('/');
     }
 
+    public function show(Group $group) {
+        return view('groups.show', [
+            'group' => $group,
+        ]);
+    }
 }

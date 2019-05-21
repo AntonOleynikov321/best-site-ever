@@ -1,21 +1,14 @@
 @extends('layouts.app')
 @section('content')
-    <div class="form-group" id="createGroup">
-        <div class="col-sm-offset-3 col-sm-6">
-            <button type="submit" class="btn btn-default">
-                <a href="{{ url('/create') }}">
-                    <i class="fa fa-plus"> Создать</i>
-                </a>                
-            </button>
-        </div>
+<div class="form-group" id="createGroup">
+    <div class="col-sm-offset-3 col-sm-6">
+        <button type="submit" class="btn btn-default">
+            <a href="{{ url('/create') }}">
+                <i class="fa fa-plus"> Создать</i>
+            </a>                
+        </button>
     </div>
-
-
-
-
-
-
-
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1" id="groups">
@@ -30,7 +23,15 @@
             <div>
                 @foreach ($groups as $group)
                 <ul>
-                    <li>{{$group->name}}</li>
+                    <form action="{{ url('') }}" method="post" class="form-horizontal">
+                        {{csrf_field()}}
+                        {{method_field('get')}}
+                        <div>
+                            <a href="{{url('/show'.$group->id)}}">
+                                <li>{{$group->name}}</li>
+                            </a>
+                        </div>
+                    </form>
                 </ul>
                 @endforeach
             </div>

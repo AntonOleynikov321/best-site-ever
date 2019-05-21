@@ -20,4 +20,4 @@ Route::auth();
 Route::get('/', 'HomeController@index');
 Route::get('/create', 'HomeController@create');
 Route::post('/store', 'HomeController@store');
-
+Route::get('/show{group}', 'HomeController@show');
