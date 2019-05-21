@@ -14,23 +14,25 @@
 
         <div class="col-md-10 col-md-offset-1" id="groups">
             <div class="panel panel-default" >
-                <div class="panel-heading">Состою:</div>
+                <div class="panel-heading">Как студент:</div>
                
+                 @foreach ($students as $student)
                 <ul>
-                    <li></li>
+                    <li>{{$student->name}}</li>
                 </ul>
+                @endforeach
                 
                 <div class="panel-body">
 
                 </div>
             </div>
             <div class="panel panel-default" >
-                <div class="panel-heading">Мои:</div>
+                <div class="panel-heading">Как учитель:</div>
 
 
-                @foreach ($groups as $group)
+                @foreach ($teachers as $teacher)
                 <ul>
-                    <li>{{$group->name}}</li>
+                    <li>{{$teacher->name}}</li>
                 </ul>
                 @endforeach
                 
