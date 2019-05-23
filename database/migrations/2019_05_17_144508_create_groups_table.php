@@ -13,9 +13,7 @@ class CreateGroupsTable extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('user_id')->unsigned();
             $table->integer('owner_id')->unsigned();
-            $table->integer('homework_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -28,4 +26,3 @@ class CreateGroupsTable extends Migration
     {
         Schema::drop('groups');
     }
-}
