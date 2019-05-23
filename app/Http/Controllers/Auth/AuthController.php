@@ -21,7 +21,11 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesAndRegistersUsers,
+    ThrottlesLogins,
+    CustomAuth {
+        CustomAuth::loginUsername insteadof AuthenticatesAndRegistersUsers;
+    }
 
     /**
      * Where to redirect users after login / registration.
