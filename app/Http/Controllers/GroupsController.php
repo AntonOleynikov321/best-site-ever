@@ -36,18 +36,18 @@ class GroupsController extends Controller
         ]);
     }
 
-    public function show(Request $request, Group $groups) {
+    public function store(Request $request, Group $groups) {
         $this->validate($request, [
             'name' => 'required|max:100',
         ]);
         $groups = new Group();
         $groups->name = $request->name;
         $groups->save();
-        return redirect(route('home_index'));
+        return redirect(route('groups_index'));
     }
 
-    public function delete( Group $groups) {
+    public function destroy( Group $groups) {
         $groups->delete();
-        return redirect(route('home_index'));
+        return redirect(route('groups_index'));
     }
 }

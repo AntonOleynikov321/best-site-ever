@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<form action="{{route('groups_add')}}" method="POST" class="form-horizontal">
+<form action="{{route('groups_create')}}" method="POST" class="form-horizontal">
     {{ csrf_field() }}
     {{ method_field('get') }}
     <div class="form-group" id="createGroup" >
@@ -35,7 +35,7 @@
                 @foreach ($teachers as $teacher)
                 <ul>
                     <li>{{$teacher->name}}</li>
-                    <form method='post' action="{{ route('groups_destroy',$group->id) }}">
+                    <form method='post' action="{{ route('groups_destroy', $groups->id) }}">
                         {{ csrf_field() }}
                         {{method_field('delete')}}                                     
                         <button type="submit" class="btn btn-default bg-danger">

@@ -4,7 +4,7 @@
     <!-- Отображение ошибок проверки ввода -->
     @include('common.errors')
     <!-- Форма новой группы -->
-    <form action="{{route('groups_create', $groups->id)}}" method="POST" class="form-horizontal">
+    <form action="{{route('groups_store', $groups->id)}}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
         {{ method_field('put') }}
         <div class="form-group">         

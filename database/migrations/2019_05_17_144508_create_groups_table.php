@@ -3,18 +3,20 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGroupsTable extends Migration
-{
+class CreateGroupsTable extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('groups', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');           
+            $table->string('name');
+            $table->integer('owner_id')->unsigned();
+            $table->integer('homework_id')->unsigned();
+            $table->foreign('owner_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -24,8 +26,8 @@ class CreateGroupsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::drop('groups');
     }
+
 }
