@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Storage;
 use App\Group;
-use App\Homework;
+use App\Hw;
 class HwsController extends Controller {
 
     public function __construct() {
@@ -20,7 +20,7 @@ class HwsController extends Controller {
         ]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request,Group $group) {
 
         if ($request->hasFile('file_homework')) {
             $filename=$request->file('file_homework')->getClientOriginalName();
@@ -33,11 +33,12 @@ class HwsController extends Controller {
             'name' => 'required|max:255',
             'finish' => 'required',
         ]);
-        $homework = new Homework();
+        $homework = new Hw();
         $homework->name = $request->name;
         $homework->text = $request->text;
-        $homework->file=$filename;
         $homework->finish = $request->finish;
+        $homework->group_id=$group->id;
+        $homework->user_id=$request->user;
         $homework->save();
         return redirect(route('group_show'));
     }

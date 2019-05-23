@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Group;
-
+use App\Hw;
 class GroupsController extends Controller
 {
     public function __construct() {
@@ -13,7 +13,8 @@ class GroupsController extends Controller
     }
     
     public function show(Request $request, Group $group) {
-        $homeworks = \App\Homework::all();
+      
+        $homeworks= $request->user()->hws()->get();
         return view('group.index', [
             'group'=>$group,
             'homeworks' => $homeworks,
