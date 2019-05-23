@@ -5,6 +5,7 @@
     <div class="panel-heading">Участники: 
 	<!--        TODO добавление участника-->
 	<form method="POST" action="{{route('add_student')}}">
+	    {{ method_field('GET') }}
 	    {{ csrf_field() }}
 	    <button type="submit" class="btn btn-default"> 
 		<i class="fa fa-plus"></i> 
