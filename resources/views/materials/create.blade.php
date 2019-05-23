@@ -54,5 +54,13 @@
             </div>
         </div>
     </form>
+    <form method="post" action="files" enctype="multipart/form-data">
+        <div>
+            <input type="file" name="file">             
+        </div>
+        <div>
+            <button type="submit">Сохранить</button>
+        </div>        
+    </form>
 </div>
 @endsection

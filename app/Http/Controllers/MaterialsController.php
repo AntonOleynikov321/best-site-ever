@@ -51,5 +51,16 @@ class MaterialsController extends Controller {
         $material->delete();
         return redirect('/materials/create');
     }
+    
+    public function fileUpload(Request $request){
+
+    if($request->isMethod('post')){
+
+        if($request->hasFile('image')) {
+            $file = $request->file('image');
+            $file->move(public_path() . 'files','filename.img');
+        }
+     }
+   }
 
 }
