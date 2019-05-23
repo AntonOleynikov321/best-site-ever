@@ -9,6 +9,7 @@
                     <div class="panel-body">
                         <form method="POST" action="{{ url('/{group}/forums')}}">
                             {{ csrf_field() }}
+                            {{ method_field('GET') }}
 
                             <div class="form-group">
                                 <label for="title">Название:</label>

@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Group;
-use App\Homework;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Controllers\HomeController;
+use App\Group;
 
 class GroupsController extends Controller {
 
@@ -14,18 +12,8 @@ class GroupsController extends Controller {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function show(Group $group) {
-	var_dump($group);
-        $homeworks = \App\Homework::all();
-        return view('group.index', [
-            'homeworks' => $homeworks,
-        ]);
+        return view('groups.index',['group'=>$group]);
     }
 
-    
 }

@@ -150,13 +150,5 @@
             </div>
         </div>
     </div>
-    <form method="GET" action="{{url('/{group}/forums/create')}}">
-	<div class="forum-group" id="createForum">
-	    <div class="col-sm-offset-3 col-sm-6">
-		<button type="submit" class="btn btn-default">
-		    <i class="fa fa-plus"> Создать форум</i> 
-		</button>
-	    </div>
-	</div>
-    </form>
+
     @endsection
