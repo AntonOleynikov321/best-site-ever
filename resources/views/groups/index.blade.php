@@ -15,13 +15,18 @@
         <div class="col-md-10 col-md-offset-1" id="groups">
             <div class="panel panel-default" >
                 <div class="panel-heading">Как студент:</div>
-               
-                 @foreach ($students as $student)
+
+                @foreach ($students as $student)
                 <ul>
-                    <li>{{$student->name}}</li>
+                    <li>  <form action="{{ route('group_show',$student->id) }}" method="POST">
+                            {{ csrf_field() }}
+
+
+                            <a href="{{ route('group_show',$student->id) }}">{{$student->name}}</a>
+                        </form></li>
                 </ul>
                 @endforeach
-                
+
                 <div class="panel-body">
 
                 </div>
@@ -32,10 +37,16 @@
 
                 @foreach ($teachers as $teacher)
                 <ul>
-                    <li>{{$teacher->name}}</li>
+                    <li>  <form action="{{ route('group_show',$teacher->id) }}" method="POST">
+                            {{ csrf_field() }}
+
+                            <a href="{{ route('group_show',$teacher->id) }}">{{$teacher->name}}</a>
+
+
+                        </form></li>
                 </ul>
                 @endforeach
-                
+
                 <div class="panel-body">
 
                 </div>
