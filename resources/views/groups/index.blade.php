@@ -15,13 +15,13 @@
         <div class="col-md-10 col-md-offset-1" id="groups">
             <div class="panel panel-default" >
                 <div class="panel-heading">Как студент:</div>
-               
-                 @foreach ($students as $student)
+
+                @foreach ($students as $student)
                 <ul>
                     <li>{{$student->name}}</li>
                 </ul>
                 @endforeach
-                
+
                 <div class="panel-body">
 
                 </div>
@@ -35,13 +35,22 @@
                     <li>{{$teacher->name}}</li>
                 </ul>
                 @endforeach
-                
+
                 <div class="panel-body">
 
                 </div>
             </div>
 
         </div>
+        <form method="GET">
+            <div class="forum-group" id="createForum">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <button type="submit" class="btn btn-default">
+                        <i class="fa fa-plus"> Создать форум</i> 
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 @endsection
