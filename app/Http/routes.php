@@ -19,13 +19,10 @@ Route::auth();
 
 Route::get('/', 'HomeController@index');
 
-Route::resource('groups','GroupsController');
-
-Route::get('/groups/{group}','GroupsController@show')->name('groups_show');
 
 Route::get('/groups/create','GroupsController@create')->name('groups_create');
 
-Route::post('/groups','GroupsController@store')->name('groups_store');
+Route::put('/groups','GroupsController@store')->name('groups_store');
 
 Route::delete('/groups/{group}','GroupsController@destroy')->name('groups_destroy');
 

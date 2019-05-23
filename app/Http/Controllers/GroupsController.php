@@ -24,7 +24,7 @@ class GroupsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, Group $groups) {
-        $groups = Group::All();
+        $groups = Group::all();
         return view('groups.index', [
             'groups' => $groups,
         ]);
@@ -36,18 +36,21 @@ class GroupsController extends Controller
         ]);
     }
 
-    public function store(Request $request, Group $groups) {
+    public function store(Request $request) {
         $this->validate($request, [
             'name' => 'required|max:100',
         ]);
-        $groups = new Group();
-        $groups->name = $request->name;
-        $groups->save();
+        $group = new Group();
+        $group->name = $request->name;
+        $group->owner_id = $request->user()->id;
+//        var_dump($group);
+//        die();
+        $group->save();
         return redirect(route('groups_index'));
     }
 
-    public function destroy( Group $groups) {
-        $groups->delete();
+    public function destroy( Group $group) {
+        $group->delete();
         return redirect(route('groups_index'));
     }
 }
