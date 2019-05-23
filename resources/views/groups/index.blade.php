@@ -3,10 +3,14 @@
 @section('content')
 <div id="participants" class="panel panel-default">
     <div class="panel-heading">Участники: 
-<!--        TODO добавление участника-->
-        <button type="submit" class="btn btn-default"> 
+	<form action="{{route('invite_student',1)}}" method="POST">
+	    {{csrf_field()}}
+	    {{method_field('get')}}
+	    <button type="submit" class="btn btn-default"> 
             <i class="fa fa-plus"></i> 
-          </button></div>
+          </button>
+	</form>
+        </div>
     <ul>
         <li><a href="#"><h4>*Создатель группы*</h4></a></li>
 <!--        TODO foreach для вывода всех участников -->

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
+use App\Group;
 
 class InvitesController extends Controller {
 
@@ -18,8 +19,10 @@ class InvitesController extends Controller {
 
     public function inviteUser(Group $group, Request $request) {
 	$login = $request->login;
-	User::
-	$group->save();
+	$user = User::all()->where('name', $login);
+	var_dump($user);
+	exit();
+	$group->attach($user);
     }
 
 }
