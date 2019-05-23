@@ -43,8 +43,6 @@ Route::post('/{group}/hws','HwsController@store');
 
 Route::delete('/hws/{hw}','HwsController@destroy');
 
-
-
 Route::get('{materials}/create','MaterialsController@show');
 
 //Route::get('/{group}/materials/create','MaterialsController@create');
@@ -54,10 +52,6 @@ Route::get('/materials/create','MaterialsController@create');
 Route::post('/materials','MaterialsController@store');
 
 Route::delete('{material}','MaterialsController@destroy');
-
-
-
-
 
 Route::post('/{hw}','HwsController@upload');
 

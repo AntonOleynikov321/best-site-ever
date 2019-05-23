@@ -46,21 +46,21 @@ class MaterialsController extends Controller {
         $materials->save();
         return redirect('/materials/create');
     }
-    
+
     public function destroy(Materials $material) {
         $material->delete();
         return redirect('/materials/create');
     }
-    
-    public function fileUpload(Request $request){
 
-    if($request->isMethod('post')){
+    public function fileUpload(Request $request) {
 
-        if($request->hasFile('image')) {
-            $file = $request->file('image');
-            $file->move(public_path() . 'files','filename.img');
+        if ($request->isMethod('post')) {
+
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $file->move(public_path() . '/path', 'filename');
+            }
         }
-     }
-   }
+    }
 
 }

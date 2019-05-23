@@ -44,6 +44,9 @@
             <div class="col-sm-6">
                 <input type="text" name="name" id="materials-name" class="form-control">
                 <textarea type="text" name="text" id="materials-text" class="form-control"></textarea>
+<!--                <div>
+                    <input type="file" name="file">             
+                </div>-->
             </div>
         </div>
         <div class="form-group">
@@ -54,7 +57,7 @@
             </div>
         </div>
     </form>
-    <form method="post" action="files" enctype="multipart/form-data">
+    <form method="put" action="" enctype="multipart/form-data">
         <div>
             <input type="file" name="file">             
         </div>
