@@ -5,7 +5,7 @@
     @include('common.errors')
 <div  class="panel panel-default">
     <div class="panel-heading">Домашнее задание: </div>
-    <form method="POST" class="form-horizontal" action="{{route('store.homework')}}" >
+    <form method="POST" class="form-horizontal" action="{{route('homework.store')}}" enctype="multipart/form-data">
         {{ csrf_field() }}
       <div class="form-group">
         <label for="homework">Заголовок:</label>
@@ -16,6 +16,7 @@
         <div>
             <textarea id="homework-text" name="text"></textarea>
         </div>
+        <input type="file" name="file_homework" id="homework-file">
         <label for="homework" >Дата окончания:</label>
         <div>
             <input type="date" name="finish" id="homework-finish" class="form-control">

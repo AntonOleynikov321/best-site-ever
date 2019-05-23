@@ -21,7 +21,7 @@ Route::get('/', 'HomeController@index');
 
 Route::resource('groups','GroupsController');
 
-Route::get('/groups/group','GroupsController@show');
+Route::get('/groups/1','GroupsController@show')->name('group.show');
 
 Route::get('/groups/create','GroupsController@create');
 
@@ -37,11 +37,11 @@ Route::post('/{group}/forums','ForumsController@store');
 
 Route::delete('/forums/forum','ForumsController@destroy');
 
-Route::get('/{group}/hws/create','HwsController@create');
+Route::get('/1/hws/create','HwsController@create')->name ('homework.create');
 
-Route::post('/{group}/hws','HwsController@store');
+Route::post('/1/hws','HwsController@store')->name('homework.store');
 
-Route::delete('/hws/{hw}','HwsController@destroy');
+Route::delete('/hws/{hw}','HwsController@destroy')->name('homework.destroy');
 
 Route::get('/{group}/materials/create','MaterialsController@create');
 
@@ -49,7 +49,7 @@ Route::post('/{group}/materials','MaterialsController@store');
 
 Route::delete('/{material}','MaterialsController@destroy');
 
-Route::post('/{hw}','HwsController@upload');
+Route::post('/{hw}','HwsController@upload')->name('homework.upload');
 
 Route::post('/invites/confirm','InvitesController@confirm');
 

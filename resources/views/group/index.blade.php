@@ -51,7 +51,7 @@
                     <button type="submit" class="btn btn-success cases" id="btnMaterials" style="float:right"> 
                         <i class="fa fa-plus">Добавить лецию</i> 
                     </button>
-                    <a href="{{route('create.homework')}}">  <button type="submit" class="btn btn-success cases" id="btnHomework" style="display:none; float:right">
+                    <a href="{{route('homework.create')}}">  <button type="submit" class="btn btn-success cases" id="btnHomework" style="display:none; float:right">
                             <i class="fa fa-plus">Добавить домашнее задание</i> 
                         </button>
                         <button type="submit" class="btn btn-success cases" id="btnForum" style="display:none; float:right">
@@ -105,7 +105,7 @@
                                     <div><a href="#">{{ $homework->name }}</a></div                                                            >
                                 </td>
                                 <td>
-                                    <form action="{{route('show.homework',$homework->id)}}" method="POST">
+                                    <form action="{{route('homework.show',$homework->id)}}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('GET') }}
                                     <button type="submit" class="btn btn-info">
@@ -114,7 +114,7 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="{{route('edit.homework',$homework->id)}}" method="POST">
+                                    <form action="{{route('homework.edit',$homework->id)}}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('GET') }}
                                     <button type="submit" class="btn btn-warning">
@@ -123,7 +123,7 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="{{route('destroy.homework',$homework->id)}}" method="POST">
+                                    <form action="{{route('homework.destroy',$homework->id)}}" method="POST">
                                       {{ csrf_field() }}
                                        {{ method_field('DELETE') }}
                                     <button type="submit" class="btn btn-danger">
