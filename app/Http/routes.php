@@ -24,9 +24,9 @@ Route::get('/', 'HomeController@index')->name('home_index');
 
 Route::get('/groups/{group}','GroupsController@show')->name('group_show');
 
-Route::get('/groups/create','GroupsController@create')->name('group_create');
+Route::get('/group/create','GroupsController@create')->name('group_create');
 
-Route::post('/groups','GroupsController@store')->name('group_store');
+Route::post('/group','GroupsController@store')->name('group_store');
 
 Route::delete('/groups/{group}','GroupsController@destroy')->name('group_destroy');
 
