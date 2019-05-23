@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\HomeController;
 
-class GroupController extends Controller {
+class GroupsController extends Controller {
 
     public function __construct() {
         $this->middleware('auth');
@@ -67,6 +67,10 @@ class GroupController extends Controller {
          return view('group.showHomework', [
             'homework' => $homework,
         ]);
+    }
+    
+    public function show() {
+         return view('group.index');
     }
 
 }

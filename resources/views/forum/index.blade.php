@@ -7,7 +7,7 @@
                     <div class="panel-heading">Создать новый форум</div>
 
                     <div class="panel-body">
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ url('/{group}/forums')}}">
                             {{ csrf_field() }}
 
                             <div class="form-group">
