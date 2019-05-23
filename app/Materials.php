@@ -5,10 +5,10 @@ namespace App;
 use App\Group;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Materials extends Model
 {
     protected $fillable = [
-        'name','text'
+        'name','text','file',
         ];
     
     /**

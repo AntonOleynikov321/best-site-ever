@@ -1,12 +1,12 @@
 @if (count($errors) > 0)
-  <!-- Список ошибок формы -->
-  <div class="alert alert-danger">
-    <strong>Упс! Что-то пошло не так!</strong>
+<!-- РЎРїРёСЃРѕРє РѕС€РёР±РѕРє С„РѕСЂРјС‹ -->
+<div class="alert alert-danger">
+    <strong>РЈРїСЃ! Р§С‚Рѕ-С‚Рѕ РїРѕС€Р»Рѕ РЅРµ С‚Р°Рє!</strong>
     <br><br>
     <ul>
-      @foreach ($errors->all() as $error)
+        @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
-      @endforeach
+        @endforeach
     </ul>
-  </div>
+</div>
 @endif

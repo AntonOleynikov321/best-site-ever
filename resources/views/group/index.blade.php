@@ -53,7 +53,8 @@
                     <!--TODO форма добавления материалов-->
                     
                     <button type="submit" class="btn btn-success cases" id="btnMaterials" style="float:right"> 
-                        <a href="{{route('create.article')}}">
+                        <a href="{{ url('/materials/create') }}">
+<!--                            '/{group}/materials/create'-->
                             <i class="fa fa-plus">Добавить лецию</i>
                         </a>                        
                     </button>
