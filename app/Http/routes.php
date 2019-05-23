@@ -26,10 +26,10 @@ Route::delete('/users/{user}',function(User $users) {
         return redirect(route('users_index'));
     })->name('users_destroy');
     
-Route::auth();
-
-Route::get('/', 'HomeController@index');
-
+//Route::auth();
+//
+//Route::get('/', 'HomeController@index');
+//
 //Route::resource('groups','GroupsController');
 //
 //Route::get('/groups/{group}','GroupsController@show');
@@ -40,7 +40,7 @@ Route::get('/', 'HomeController@index');
 //
 //Route::delete('/groups/{group}','GroupsController@destroy');
 //
-Route::post('/invites','InvitesController@student');
+Route::get('/invites','InvitesController@student');
 //
 //Route::get('/{group}/forums/create','ForumsController@create');
 //

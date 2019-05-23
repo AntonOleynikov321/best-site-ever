@@ -4,7 +4,7 @@
 <div id="participants" class="panel panel-default">
     <div class="panel-heading">Участники: 
 	<!--        TODO добавление участника-->
-	<form action="{{route('add_student')}}">
+	<form action="{{route('add_user')}}">
 	    {{ csrf_field() }}
 	    <button type="submit" class="btn btn-default"> 
 		<i class="fa fa-plus"></i> 
