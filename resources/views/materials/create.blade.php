@@ -44,9 +44,9 @@
             <div class="col-sm-6">
                 <input type="text" name="name" id="materials-name" class="form-control">
                 <textarea type="text" name="text" id="materials-text" class="form-control"></textarea>
-<!--                <div>
+                <div>
                     <input type="file" name="file">             
-                </div>-->
+                </div>
             </div>
         </div>
         <div class="form-group">
@@ -56,14 +56,6 @@
                 </button>
             </div>
         </div>
-    </form>
-    <form method="post" action="" enctype="multipart/form-data">
-        <div>
-            <input type="file" name="file">             
-        </div>
-        <div>
-            <button type="submit">Сохранить</button>
-        </div>        
     </form>
 </div>
 @endsection

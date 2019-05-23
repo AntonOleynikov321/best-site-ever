@@ -30,11 +30,18 @@ class MaterialsController extends Controller {
     }
 
     public function store(Request $request) {
+
+        if ($request->hasFile('file_materials')) {
+            $filename = $request->file('file_materials')->getClientOriginalName();
+            $filename = $request->name . $filename;
+            $file = $request->file('file_materials');
+            $file->move('storage/app/public', $filename);
+        }
+        
         $this->validate($request, [
             'name' => 'required|max:255',
             'text' => 'required',
         ]);
-
 //        $request->group()->materials()->create([
 //            'name' => $request->name,
 //            'text' => $request->text,
@@ -51,17 +58,5 @@ class MaterialsController extends Controller {
         $material->delete();
         return redirect('/materials/create');
     }
-
-    public function fileUpload(Request $request) {
-
-            if ($request->hasFile('file')) {
-                $filename = $request->file('file')->getClientOriginalName();
-                $filename = $request->name.$filename;
-                $file = $request->file('file');
-                $file->move('storage/app/public', 'filename');
-            }
-            exit();
-    }
-        
 
 }
