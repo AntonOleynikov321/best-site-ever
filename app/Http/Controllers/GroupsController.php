@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Group;
 
+class GroupsController extends Controller {
 
-class GroupsController extends Controller
-{
     /**
      * Create a new controller instance.
      *
@@ -31,6 +30,8 @@ class GroupsController extends Controller
     }
 
     public function create(Group $groups) {
+
+
         return view('groups.create', [
             'groups' => $groups,
         ]);
@@ -43,14 +44,18 @@ class GroupsController extends Controller
         $group = new Group();
         $group->name = $request->name;
         $group->owner_id = $request->user()->id;
-//        var_dump($group);
-//        die();
+
         $group->save();
-        return redirect(route('groups_index'));
+        return redirect(route('home_index'));
     }
 
-    public function destroy( Group $group) {
+    public function destroy(Group $group) {
         $group->delete();
         return redirect(route('groups_index'));
     }
+
+    public function show() {
+        return view('groups.index');
+    }
+
 }
