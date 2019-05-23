@@ -16,13 +16,13 @@ class HomeController extends Controller {
     public function index(Request $request) {
 
         $user = $request->user();
-        $teachers=$user->teach_groups;
-        $students=$user->student_groups;
+        $teachers_group=$user->teach_groups;
+        $students_group=$user->student_groups;
         
 
-        return view('groups.index', [
-            'teachers' => $teachers,
-            'students' => $students,
+        return view('cabinet.index', [
+            'teachers_group' => $teachers_group,
+            'students_group' => $students_group,
         ]);
     }
 
