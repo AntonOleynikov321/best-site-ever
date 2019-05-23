@@ -54,13 +54,14 @@ class MaterialsController extends Controller {
 
     public function fileUpload(Request $request) {
 
-        if ($request->isMethod('post')) {
-
             if ($request->hasFile('file')) {
+                $filename = $request->file('file')->getClientOriginalName();
+                $filename = $request->name.$filename;
                 $file = $request->file('file');
-                $file->move(public_path() . '/path', 'filename');
+                $file->move('storage/app/public', 'filename');
             }
-        }
+            exit();
     }
+        
 
 }

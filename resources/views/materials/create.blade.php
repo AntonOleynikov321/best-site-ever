@@ -57,7 +57,7 @@
             </div>
         </div>
     </form>
-    <form method="put" action="" enctype="multipart/form-data">
+    <form method="post" action="" enctype="multipart/form-data">
         <div>
             <input type="file" name="file">             
         </div>
