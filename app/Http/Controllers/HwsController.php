@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Storage;
-
+use App\Group;
+use App\Homework;
 class HwsController extends Controller {
 
     public function __construct() {
         $this->middleware('auth');
     }
 
-    public function create() {
-        return view('group.CreateHomework');
+    public function create(Group $group) {
+        
+        return view('group.CreateHomework',[
+            'group'=> $group,
+        ]);
     }
 
     public function store(Request $request) {
@@ -25,7 +29,6 @@ class HwsController extends Controller {
             $file->move('storage/app/public/homework',$filename);
         }
 
-        exit();
         $this->validate($request, [
             'name' => 'required|max:255',
             'finish' => 'required',
@@ -33,9 +36,10 @@ class HwsController extends Controller {
         $homework = new Homework();
         $homework->name = $request->name;
         $homework->text = $request->text;
+        $homework->file=$filename;
         $homework->finish = $request->finish;
         $homework->save();
-        return redirect(route('group.show'));
+        return redirect(route('group_show'));
     }
 
     public function delete(Homework $homework, Request $request) {

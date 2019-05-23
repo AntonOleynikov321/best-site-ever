@@ -5,7 +5,7 @@
     @include('common.errors')
 <div  class="panel panel-default">
     <div class="panel-heading">Домашнее задание: </div>
-    <form method="POST" class="form-horizontal" action="{{route('homework.store')}}" enctype="multipart/form-data">
+    <form method="POST" class="form-horizontal" action="{{route('hws_store',$group->id)}}" enctype="multipart/form-data">
         {{ csrf_field() }}
       <div class="form-group">
         <label for="homework">Заголовок:</label>

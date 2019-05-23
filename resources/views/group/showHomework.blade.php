@@ -11,6 +11,6 @@
                 <p style='color:red'>Дата окончания: {{$homework->finish}}</p>
                 </div>
             </div>
-            <a href="{{route('group.show')}}"><button class="btn btn-info"><i class="fa fa-arrow-left"></i> Назад</button></a>
+            <a href="{{route('group_show')}}"><button class="btn btn-info"><i class="fa fa-arrow-left"></i> Назад</button></a>
         </div>
 @endsection
