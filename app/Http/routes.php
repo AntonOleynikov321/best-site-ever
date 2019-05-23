@@ -1,6 +1,5 @@
 <?php
-use Illuminate\Http\Request;
-use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,62 +11,57 @@ use App\User;
 |
 */
 
-Route::get('/groups', function () {
-    $users = User::all();
-    return view('cabinet.index',['users'=>$users]);
-})->name('users_index');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-//Route::get('/invites', function () {
-//    return view('add_student.add');
-//})->name('add_student');
-
-Route::delete('/users/{user}',function(User $users) {
-        $users->delete();
-        return redirect(route('users_index'));
-    })->name('users_destroy');
-    
 Route::auth();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home_index');
 
-Route::resource('groups','GroupsController');
+//Route::resource('groups','GroupsController')->name();//TODO что делать с ресурсом хз
 
-Route::get('/groups/{group}','GroupsController@show');
 
-Route::get('/groups/create','GroupsController@create');
+Route::get('/groups/{group}','GroupsController@show')->name('group_show');
 
-Route::post('/groups','GroupsController@store');
 
-Route::delete('/groups/{group}','GroupsController@destroy');
 
-Route::get('/invites','InvitesController@student')->name('add_student');
+Route::get('/groups/create','GroupsController@create')->name('group_create');
 
-//Route::post('/invites/{group}','InvitesController@inviteUser')->name('invite_student');
+Route::post('/groups','GroupsController@store')->name('group_store');
 
-Route::get('/{group}/forums/create','ForumsController@create');
+Route::delete('/groups/{group}','GroupsController@destroy')->name('group_destroy');
 
-Route::post('/{group}/forums','ForumsController@store');
+Route::post('/invites','InvitesController@student')->name('invite_student');
 
-Route::delete('/forums/{forum}','ForumsController@destroy');
+Route::get('/{group}/forums/create','ForumsController@create')->name('forum_create');
 
-Route::get('/{group}/hws/create','HwsController@create');
+Route::post('/{group}/forums','ForumsController@store')->name('forum_store');
 
-Route::post('/{group}/hws','HwsController@store');
 
-Route::delete('/hws/{hw}','HwsController@destroy');
+Route::delete('/forums/{forum}','ForumsController@destroy')->name('forum_destroy');
 
-Route::get('/{group}/materials/create','MaterialsController@create');
 
-Route::post('/{group}/materials','MaterialsController@store');
+Route::get('/{group}/hws/create','HwsController@create')->name('hws_create');
 
-Route::delete('/{material}','MaterialsController@destroy');
+Route::post('/{group}/hws','HwsController@store')->name('hws_store');
 
-Route::post('/{hw}','HwsController@upload');
+Route::delete('/hws/{hw}','HwsController@destroy')->name('hws_destroy');
 
-Route::post('/invites/confirm','InvitesController@confirm');
+Route::get('/{group}/materials/create','MaterialsController@create')->name('materials_create');
 
-Route::get('/hws/{hw}','HwsController@show');
+Route::post('/{group}/materials','MaterialsController@store')->name('materials_store');
 
-Route::get('/forums/{forum}','ForumsController@show');
+Route::delete('/{material}','MaterialsController@destroy')->name('materials_destroy');
 
-Route::get('/{group}/materials','MaterialsController@show');
+Route::post('/{hw}','HwsController@upload')->name('hws_upload');
+
+Route::post('/invites/confirm','InvitesController@confirm')->name('invite_confirm');
+
+Route::get('/hws/{hw}','HwsController@show')->name('hws_show');
+
+Route::get('/forums/{forum}','ForumsController@show')->name('forum_show');
+
+Route::get('/{group}/materials','MaterialsController@show')->name('materials_show');
+
+Route::post('/invites/{group}','InvitesController@inviteUser')->name('invite_student');
