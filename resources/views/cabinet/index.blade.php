@@ -18,9 +18,9 @@
                 
                 @foreach ($students_group as $student_group)
                 <ul>
-                    <li>  <p>{{$student_group->name}}</a><form action="{{route('')}}">
+                    <li>  <form>
                             {{ csrf_field() }}
-                            <>
+                            <a href="{{ route('group_show',$student_group->id) }}">{{$student_group->name}}</a>
                         </form></li>
                 </ul>
                 @endforeach

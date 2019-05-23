@@ -2,19 +2,22 @@
 
 @section('content')
 <div id="participants" class="panel panel-default">
+
     <div class="panel-heading">Участники: 
 	<!--        TODO добавление участника-->
         <button type="submit" class="btn btn-default"> 
             <i class="fa fa-plus"></i> 
 	</button></div>
+
     <ul>
-        <li><a href="#"><h4>*Создатель группы*</h4></a></li>
-	@foreach ($students_group as $student_group)
+        <li><a href="#"><h4>{{$owners->name}}</h4></a></li>
+	@foreach ($users as $user)
 	<ul>
-	    <li>  <form>
-		    {{ csrf_field() }}
-		    <a href="{{ route('group_show',$student_group->id) }}">{{$student_group->name}}</a>
-		</form></li>
+	      
+		{{ csrf_field() }}
+		<li><p>{{$user->name}}</p>
+		    <form action=""><input type="submit" name="del" value="del"></form></li>
+	    
 	</ul>
 	@endforeach
     </ul>

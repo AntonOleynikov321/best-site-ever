@@ -13,14 +13,17 @@ class GroupsController extends Controller {
 	$this->middleware('auth');
     }
 
-    public function show(Request $request) {
-
-	$user = $request->user();
-	$students_group = $user->student_groups;
+    public function show(Group $group, Request $request) {
+	$users=$group->students;
+	$owners=$group->owner;
+//	$user = $request->user();
+//	$teachers_group = $user->teach_groups;
+//	$students_group = $user->student_groups;
 
 
 	return view('groups.index', [
-	    'students_group' => $students_group,
+	    'users' => $users,
+	    'owners'=> $owners,
 	]);
     }
 
