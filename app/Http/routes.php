@@ -12,7 +12,7 @@ use App\User;
 |
 */
 
-Route::get('/users', function () {
+Route::get('/groups', function () {
     $users = User::all();
     return view('cabinet.index',['users'=>$users]);
 })->name('users_index');
@@ -26,15 +26,15 @@ Route::auth();
 
 Route::get('/', 'HomeController@index');
 
-Route::resource('groups','GroupsController');
+Route::resource('groups','GroupController');
 
-Route::get('/groups/{group}','GroupsController@show');
+Route::get('/groups/{group}','GroupController@show');
 
-Route::get('/groups/create','GroupsController@create');
+Route::get('/groups/create','GroupController@create');
 
-Route::post('/groups','GroupsController@store');
+Route::post('/groups','GroupController@store');
 
-Route::delete('/groups/{group}','GroupsController@destroy');
+Route::delete('/groups/{group}','GroupController@destroy');
 
 Route::get('/invites','InvitesController@student');
 
