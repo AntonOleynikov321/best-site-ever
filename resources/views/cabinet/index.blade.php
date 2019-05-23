@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<?php var_dump($student_group)?>
 <div id="participants" class="panel panel-default">
     <div class="panel-heading">Участники: 
 	<!--        TODO добавление участника-->
@@ -13,7 +14,7 @@
     </div>
     <ul>
         <li><a href="#"><h4>*Создатель группы*</h4></a></li>
-	@foreach ($users as $user)
+	@foreach ($student_group as $user)
         <li><p>{{$user->group_id}}</p>
 	    <form action="{{ route('users_destroy',$user->id) }}" method="POST" class="form-horizontal">
 		{{ csrf_field() }}

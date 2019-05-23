@@ -1,38 +1,38 @@
 <?php
+
 use Illuminate\Http\Request;
 use App\User;
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+use App\Http\Controllers\GroupController;
 
-Route::get('/groups', function () {
-    $users = User::all();
-    return view('cabinet.index',['users'=>$users]);
-})->name('users_index');
+
+/*
+  |--------------------------------------------------------------------------
+  | Application Routes
+  |--------------------------------------------------------------------------
+  |
+  | Here is where you can register all of the routes for an application.
+  | It's a breeze. Simply tell Laravel the URIs it should respond to
+  | and give it the controller to call when that URI is requested.
+  |
+ */
+
 
 //Route::get('/invites', function () {
 //    return view('add_student.add');
 //})->name('add_student');
 
-Route::delete('/users/{user}',function(User $users) {
-        $users->delete();
-        return redirect(route('users_index'));
-    })->name('users_destroy');
-    
+Route::delete('/users/{user}', function(User $users) {
+    $users->delete();
+    return redirect(route('users_index'));
+})->name('users_destroy');
+
 //Route::auth();
 //
 //Route::get('/', 'HomeController@index');
 //
 //Route::resource('groups','GroupsController');
 //
-//Route::get('/groups/{group}','GroupsController@show');
+Route::get('/groups/{group}','GroupsController@show')->name('users_index');
 //
 //Route::get('/groups/create','GroupsController@create');
 //
@@ -40,7 +40,7 @@ Route::delete('/users/{user}',function(User $users) {
 //
 //Route::delete('/groups/{group}','GroupsController@destroy');
 //
-Route::get('/invites','InvitesController@student')->name('add_student');
+Route::get('/invites', 'InvitesController@student')->name('add_student');
 //
 //Route::get('/{group}/forums/create','ForumsController@create');
 //
