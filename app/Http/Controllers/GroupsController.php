@@ -51,7 +51,7 @@ class GroupsController extends Controller {
 
     public function destroy(Group $group) {
         $group->delete();
-        return redirect(route('groups_index'));
+        return redirect(route('home_index'));
     }
 
     public function show() {
