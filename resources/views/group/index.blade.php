@@ -46,18 +46,18 @@
             <div class="panel panel-default" >
                 <div class="panel-heading"><button class="w3-bar-item w3-button" onclick="openCase('Materials')">Материалы</button>
                     <button class="w3-bar-item w3-button" onclick="openCase('Homework')">Домашнее задание</button>
-                     <button class="w3-bar-item w3-button" onclick="openCase('Forum')">Обсуждения</button>
+		    <button class="w3-bar-item w3-button" onclick="openCase('Forum')">Обсуждения</button>
                     <!--TODO форма добавления материалов-->
                     <button type="submit" class="btn btn-success cases" id="btnMaterials" style="float:right"> 
                         <i class="fa fa-plus">Добавить лецию</i> 
                     </button>
-                    <a href="{{route('create.homework')}}">  <button type="submit" class="btn btn-success cases" id="btnHomework" style="display:none; float:right">
-                            <i class="fa fa-plus">Добавить домашнее задание</i> 
-                        </button>
-                        <button type="submit" class="btn btn-success cases" id="btnForum" style="display:none; float:right">
-                            <i class="fa fa-plus">Добавить обсуждение</i> 
-                        </button>
-                    </a>
+		    <button type="submit" class="btn btn-success cases" id="btnHomework" style="display:none; float:right">
+			<i class="fa fa-plus">Добавить домашнее задание</i> 
+		    </button>
+		    <button type="submit" class="btn btn-success cases" id="btnForum" style="display:none; float:right">
+			<i class="fa fa-plus">Добавить обсуждение</i> 
+		    </button>
+
                 </div>
                 <div id="Materials" class="cases" >
                     <!--if  -->
@@ -105,30 +105,27 @@
                                     <div><a href="#">{{ $homework->name }}</a></div                                                            >
                                 </td>
                                 <td>
-                                    <form action="{{route('show.homework',$homework->id)}}" method="POST">
+                                    <form  method="POST">
                                         {{ csrf_field() }}
-                                        {{ method_field('GET') }}
-                                    <button type="submit" class="btn btn-info">
-                                        <i class="fa fa-book"></i> Читать
-                                    </button>
+					<button type="submit" class="btn btn-info">
+					    <i class="fa fa-book"></i> Читать
+					</button>
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="{{route('edit.homework',$homework->id)}}" method="POST">
+                                    <form  method="POST">
                                         {{ csrf_field() }}
-                                        {{ method_field('GET') }}
-                                    <button type="submit" class="btn btn-warning">
-                                        <i class="fa fa-pencil"></i>Редактировать
-                                    </button>
+					<button type="submit" class="btn btn-warning">
+					    <i class="fa fa-pencil"></i>Редактировать
+					</button>
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="{{route('destroy.homework',$homework->id)}}" method="POST">
-                                      {{ csrf_field() }}
-                                       {{ method_field('DELETE') }}
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fa fa-trash"></i> Удалить
-                                    </button>
+                                    <form  method="POST">
+					{{ csrf_field() }}
+					<button type="submit" class="btn btn-danger">
+					    <i class="fa fa-trash"></i> Удалить
+					</button>
                                     </form>
                                 </td>
                             </tr>
@@ -139,19 +136,27 @@
                 </div>
                 <div id="Forum" class="cases" ></div>
                 <script>
-                    function openCase(caseName) {
-                        var i;
-                        var x = document.getElementsByClassName("cases");
-                        for (i = 0; i < x.length; i++) {
-                            x[i].style.display = "none";
-                        }
-                        var str = 'btn' + caseName;
-                        document.getElementById(caseName).style.display = "block";
-                        document.getElementById(str).style.display = "block";
-                    }
+		    function openCase(caseName) {
+			var i;
+			var x = document.getElementsByClassName("cases");
+			for (i = 0; i < x.length; i++) {
+			    x[i].style.display = "none";
+			}
+			var str = 'btn' + caseName;
+			document.getElementById(caseName).style.display = "block";
+			document.getElementById(str).style.display = "block";
+		    }
                 </script>
             </div>
         </div>
     </div>
-
+    <form method="GET" action="{{url('/{group}/forums/create')}}">
+	<div class="forum-group" id="createForum">
+	    <div class="col-sm-offset-3 col-sm-6">
+		<button type="submit" class="btn btn-default">
+		    <i class="fa fa-plus"> Создать форум</i> 
+		</button>
+	    </div>
+	</div>
+    </form>
     @endsection

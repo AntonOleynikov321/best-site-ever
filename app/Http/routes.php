@@ -19,7 +19,7 @@ Route::auth();
 
 Route::get('/', 'HomeController@index');
 
-Route::resource('groups','GroupsController');
+//Route::resource('groups','GroupsController');
 
 Route::get('/groups/{group}','GroupsController@show');
 

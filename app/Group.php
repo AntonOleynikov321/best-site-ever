@@ -7,7 +7,7 @@ use App\User;
 
 class Group extends Model {
 
-    protected $fillable = ['name'];
+    protected $fillable = ['id','name'];
 
     public function owner() {
         return $this->belongsTo(User::class,'owner_id');
