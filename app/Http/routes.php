@@ -21,7 +21,10 @@ Route::get('/', 'HomeController@index')->name('home_index');
 
 //Route::resource('groups','GroupsController')->name();//TODO что делать с ресурсом хз
 
+
 Route::get('/groups/{group}','GroupsController@show')->name('group_show');
+
+
 
 Route::get('/groups/create','GroupsController@create')->name('group_create');
 
@@ -35,7 +38,9 @@ Route::get('/{group}/forums/create','ForumsController@create')->name('forum_crea
 
 Route::post('/{group}/forums','ForumsController@store')->name('forum_store');
 
+
 Route::delete('/forums/{forum}','ForumsController@destroy')->name('forum_destroy');
+
 
 Route::get('/{group}/hws/create','HwsController@create')->name('hws_create');
 
