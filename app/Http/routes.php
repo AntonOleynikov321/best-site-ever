@@ -17,9 +17,9 @@ Route::get('/groups', function () {
     return view('cabinet.index',['users'=>$users]);
 })->name('users_index');
 
-Route::get('/invites', function () {
-    return view('add_student.add');
-})->name('add_student');
+//Route::get('/invites', function () {
+//    return view('add_student.add');
+//})->name('add_student');
 
 Route::delete('/users/{user}',function(User $users) {
         $users->delete();
@@ -40,7 +40,7 @@ Route::delete('/users/{user}',function(User $users) {
 //
 //Route::delete('/groups/{group}','GroupsController@destroy');
 //
-Route::get('/invites','InvitesController@student');
+Route::get('/invites','InvitesController@student')->name('add_student');
 //
 //Route::get('/{group}/forums/create','ForumsController@create');
 //
