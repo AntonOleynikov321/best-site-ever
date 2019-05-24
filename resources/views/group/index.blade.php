@@ -21,10 +21,8 @@
         <li><a href="#">*участник*</a></li>
     </ul>
 </div>
-
 <div id="aboutGroup">
     <div class="row">
-
         <div class="col-md-10 col-md-offset-1" >
             <div class="panel panel-default" >
                 <div class="panel-heading"><h3>*Название группы*</h3>
@@ -41,7 +39,6 @@
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
                 <div class="panel-body">
-
                 </div>
             </div>
         </div>
@@ -50,6 +47,7 @@
                 <div class="panel-heading">
                     <button class="w3-bar-item w3-button" onclick="openCase('Materials')">Материалы</button>
                     <button class="w3-bar-item w3-button" onclick="openCase('Homework')">Домашнее задание</button>
+                     <button class="w3-bar-item w3-button" onclick="openCase('Forum')">Обсуждения</button>
                     <!--TODO форма добавления материалов-->
                     
                     <button type="submit" class="btn btn-success cases" id="btnMaterials" style="float:right"> 
@@ -58,15 +56,17 @@
                             <i class="fa fa-plus">Добавить лецию</i>
                         </a>                        
                     </button>
-                    
-                    <a href="{{route('create.homework')}}">  <button type="submit" class="btn btn-success cases" id="btnHomework" style="display:none; float:right">
+                    <a href="{{route('hws_create',$group->id)}}">  <button type="submit" class="btn btn-success cases" id="btnHomework" style="display:none; float:right">
                             <i class="fa fa-plus">Добавить домашнее задание</i> 
+                        </button>
+                        <button type="submit" class="btn btn-success cases" id="btnForum" style="display:none; float:right">
+                            <i class="fa fa-plus">Добавить обсуждение</i> 
                         </button>
                     </a>
                 </div>
                 
                 <div id="Materials" class="cases" >
-                    <!--if                                    -->
+                    <!--if  -->
                     <table class="table table-striped task-table">
                         <tbody>
                             <!--foreach-->
@@ -75,14 +75,14 @@
                                     <div><a href="#">Лекция 1</a></div>
                                 </td>
                                 <td>
-                                    <!--                                    <f                                orm>-->
+                                    <!-- <form>-->
                                     <button type="submit" class="btn btn-info">
                                         <i class="fa fa-book"></i> Читать
                                     </button>
                                     <!--</form>-->
                                 </td>
                                 <td>
-                                    <!--                                    <form>-->
+                                    <!-- <form>-->
                                     <button type="submit" class="btn btn-warning">
                                         <i class="fa fa-pencil"></i>Редактировать
                                     </button>
@@ -96,10 +96,10 @@
                                     <!--</form>-->
                                 </td>
                             </tr>
-                            <!--                                    endforeach-->
+                            <!--endforeach-->
                         </tbody>
                     </table>
-                    <!--                    endif-->
+                    <!-- endif-->
                 </div>
                 <div id="Homework" class="cases" style="display:none">
                     @if (count($homeworks) >0)
@@ -111,21 +111,25 @@
                                     <div><a href="#">{{ $homework->name }}</a></div                                                            >
                                 </td>
                                 <td>
-                                    <!--                                    <form>-->
+                                    <form action="{{route('hws_show',$homework->id)}}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('GET') }}
                                     <button type="submit" class="btn btn-info">
                                         <i class="fa fa-book"></i> Читать
                                     </button>
-                                    <!--</form>-->
+                                    </form>
                                 </td>
                                 <td>
-                                    <!--                                    <form>-->
+                                    <form action="{{route('hws_edit',$homework->id)}}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('GET') }}
                                     <button type="submit" class="btn btn-warning">
                                         <i class="fa fa-pencil"></i>Редактировать
                                     </button>
-                                    <!--</form>-->
+                                    </form>
                                 </td>
                                 <td>
-                                    <form action="{{route('destroy.homework')}}" method="POST">
+                                    <form action="{{route('hws_destroy',$homework->id)}}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <button type="submit" class="btn btn-danger">
@@ -139,6 +143,7 @@
                     </table>
                     @endif
                 </div>
+                <div id="Forum" class="cases" ></div>
                 <script>
                     function openCase(caseName) {
                         var i;
