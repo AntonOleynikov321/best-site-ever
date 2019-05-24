@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Materials;
 use App\Group;
+use Storage;
 
 class MaterialsController extends Controller {
 
@@ -31,17 +32,28 @@ class MaterialsController extends Controller {
 
     public function store(Request $request) {
 
-        if ($request->hasFile('file_materials')) {
-            $filename = $request->file('file_materials')->getClientOriginalName();
-            $filename = $request->name . $filename;
-            $file = $request->file('file_materials');
-            $file->move('storage/app/public', $filename);
+
+        if ($request->isMethod('post')) {
+
+            if ($request->hasFile('file')) {
+                $filename = $request->file('file')->getClientOriginalName();
+                $filename = $request->name . $filename;
+                $file = $request->file('file');
+                $file->move(public_path('storage/app/public') . '/path', $filename);
+            }
         }
-        
+//        if ($request->hasFile('file_materials')) {
+        //$filename = $request->file('file_materials')->getClientOriginalName();
+        //$filename = $request->name . $filename;
+        //$file = $request->file('file_materials');
+//            $file->move('storage/app/public/materials', $filename);
+//        }
+
         $this->validate($request, [
             'name' => 'required|max:255',
             'text' => 'required',
         ]);
+        echo asset('storage/file_materials');
 //        $request->group()->materials()->create([
 //            'name' => $request->name,
 //            'text' => $request->text,
