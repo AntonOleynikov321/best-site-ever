@@ -28,7 +28,7 @@ Route::get('/groups/{group}','GroupsController@show')->name('group_show');
 
 Route::get('/groups/create','GroupsController@create')->name('group_create');
 
-Route::post('/group','GroupsController@store')->name('group_store');
+Route::post('/groups','GroupsController@store')->name('group_store');
 
 Route::delete('/groups/{group}','GroupsController@destroy')->name('group_destroy');
 
@@ -38,26 +38,13 @@ Route::get('/{group}/forums/create','ForumsController@create')->name('forum_crea
 
 Route::post('/{group}/forums','ForumsController@store')->name('forum_store');
 
-
-Route::get('{materials}/create','MaterialsController@show');
-
 Route::delete('/forums/{forum}','ForumsController@destroy')->name('forum_destroy');
-
-//Route::get('/{group}/materials/create','MaterialsController@create');
-
-Route::get('/materials/create','MaterialsController@create');
-
-
-//Route::post('/{group}/materials','MaterialsController@store');
 
 Route::get('/{group}/hws/create','HwsController@create')->name('hws_create');
 
-Route::post('/materials','MaterialsController@store');
-
-Route::delete('{material}','MaterialsController@destroy');
 Route::post('/{group}/hws','HwsController@store')->name('hws_store');
 
-Route::delete('/hws/{hw}','HwsController@destroy')->name('hws_destroy');
+Route::delete('/hws/{hw}','HwsController@delete')->name('hws_destroy');
 
 Route::get('/{group}/materials/create','MaterialsController@create')->name('materials_create');
 

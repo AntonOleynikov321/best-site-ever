@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Storage;
 use App\Group;
 use App\Hw;
+
 class HwsController extends Controller {
 
     public function __construct() {
@@ -14,39 +15,43 @@ class HwsController extends Controller {
     }
 
     public function create(Group $group) {
-        
-        return view('group.CreateHomework',[
-            'group'=> $group,
+
+        return view('group.CreateHomework', [
+            'group' => $group,
         ]);
     }
 
-    public function store(Request $request,Group $group) {
-
+    public function store(Request $request, Group $group) {
         if ($request->hasFile('file_homework')) {
-            $filename=$request->file('file_homework')->getClientOriginalName();
-            $filename=$request->name.$filename;
+            $filename = $request->file('file_homework')->getClientOriginalName();
+            $filename = $request->name . $filename;
             $file = $request->file('file_homework');
-            $file->move('storage/app/public/homework',$filename);
+            $file->move('storage/app/public/homework', $filename);
         }
-
         $this->validate($request, [
             'name' => 'required|max:255',
             'finish' => 'required',
         ]);
+        $user=$request->user();
         $homework = new Hw();
         $homework->name = $request->name;
         $homework->text = $request->text;
         $homework->finish = $request->finish;
-        $homework->group_id=$group->id;
-        $homework->user_id=$request->user;
+        $homework->file_name = $filename;
+        $homework->group_id = $group->id;
+        $homework->user_id = $user['id'];
         $homework->save();
-        return redirect(route('group_show'));
+        return redirect(route('group_show',[
+            'group' => $group,
+        ]));
     }
 
-    public function delete(Homework $homework, Request $request) {
+    public function delete(Hw $homework, Request $request, Group $group) {
         $homework->id = $request->id;
         $homework->delete();
-        return redirect(route('group.show'));
+        return redirect(route('group_show',[
+            'group' => $group,
+        ]));
     }
 
     public function edit(Homework $homework) {
@@ -55,17 +60,20 @@ class HwsController extends Controller {
         ]);
     }
 
-    public function update(Homework $homework, Request $request) {
+    public function update(Hw $homework, Request $request, Group $group) {
         $homework->name = $request->name;
         $homework->text = $request->text;
         $homework->finish = $request->finish;
         $homework->save();
-        return redirect(route('group.show'));
+        return redirect(route('group_show'),[
+            'group' => $group,
+        ]);
     }
 
-    public function show(Homework $homework) {
+    public function show(Hw $homework, Group $group) {
         return view('group.showHomework', [
             'homework' => $homework,
+            'group'=>$group,
         ]);
     }
 
