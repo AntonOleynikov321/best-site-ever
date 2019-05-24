@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Materials;
 use App\Group;
-use Storage;
 
 class MaterialsController extends Controller {
 
@@ -23,11 +22,8 @@ class MaterialsController extends Controller {
         ]);
     }
 
-    //public function create(Request $request,Group $group) {
-    public function create() {
-        //$group = $request->group();
-        //return view('/{group}/materials/create');
-        return view('/materials/create');
+    public function create(Group $group) {
+        return view(route('materials_create',$group->id));
     }
 
     public function store(Request $request) {
