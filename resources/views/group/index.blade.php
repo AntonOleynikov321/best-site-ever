@@ -114,16 +114,13 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="{{route('hws_edit',$homework->id)}}" method="POST">
-                                        {{ csrf_field() }}
-                                        {{ method_field('GET') }}
-                                    <button type="submit" class="btn btn-warning">
+<!--                                    <button type="submit" class="btn btn-warning">
                                         <i class="fa fa-pencil"></i>Редактировать
-                                    </button>
-                                    </form>
+                                    </button>-->
+                               
                                 </td>
                                 <td>
-                                    <form action="{{route('hws_destroy',$homework->id)}}" method="POST">
+                                    <form action="{{route('hws_destroy',$homework->id, $group->id)}}" method="POST">
                                       {{ csrf_field() }}
                                        {{ method_field('DELETE') }}
                                     <button type="submit" class="btn btn-danger">
