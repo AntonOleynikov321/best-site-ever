@@ -6,10 +6,8 @@
     <!-- Форма новой группы -->
     <table class="table table-striped task-table">
         <tr> 
-        <form action="{{route('group_store', $groups->id)}}" method="POST" class="form-horizontal">
-            {{ csrf_field() }}
-
-                      
+        <form action="{{route('group_store')}}" method="POST" class="form-horizontal">
+            {{ csrf_field() }}                      
                 <td>       
                     <div class="form-group">         
                         <div class="col-sm-6">
