@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Group;
-use App\Group;
 use App\Hw;
 
 class GroupsController extends Controller {
@@ -20,7 +19,7 @@ class GroupsController extends Controller {
     }
     
     public function create(Group $groups) {
-        return view('groups.create', [
+        return view('group.create', [
             'groups' => $groups,
         ]);
     }
@@ -41,13 +40,10 @@ class GroupsController extends Controller {
         return redirect(route('home_index'));
     }
 
-    public function show() {
-        return view('groups.index');
-    public function show(Request $request,Group $group) {
-        $homeworks= $request->user()->hws()->get();
-        return view('groups.index', [
+    
+    public function show(Group $group) {
+        return view('group.index', [
             'group'=>$group,
-            'homeworks' => $homeworks,
         ]);
     }
 }
