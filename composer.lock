@@ -159,7 +159,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2017-07-22 12:18:28"
+            "time": "2017-07-22T12:18:28+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -517,7 +517,11 @@
                 "sftp",
                 "storage"
             ],
+<<<<<<< .mine
             "time": "2019-05-20 20:21:14"
+=======
+            "time": "2019-05-20T20:21:14+00:00"
+>>>>>>> .theirs
         },
         {
             "name": "monolog/monolog",
@@ -1916,7 +1920,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "fzaninotto/faker",

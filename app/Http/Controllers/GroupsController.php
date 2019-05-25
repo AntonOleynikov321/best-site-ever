@@ -3,21 +3,47 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use App\Group;
 use App\Hw;
 
 class GroupsController extends Controller {
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct() {
         $this->middleware('auth');
     }
+    
+    public function create(Group $groups) {
+        return view('group.create', [
+            'groups' => $groups,
+        ]);
+    }
 
-    public function show(Request $request,Group $group) {
-        $homeworks= $request->user()->hws()->get();
+    public function store(Request $request) {
+        $this->validate($request, [
+            'name' => 'required|max:100',
+        ]);
+        $group = new Group();
+        $group->name = $request->name;
+        $group->owner_id = $request->user()->id;
+        $group->save();
+        return redirect(route('home_index'));
+    }
+
+    public function destroy(Group $group) {
+        $group->delete();
+        return redirect(route('home_index'));
+    }
+
+    
+    public function show(Group $group) {
         return view('group.index', [
             'group'=>$group,
-            'homeworks' => $homeworks,
         ]);
     }
 }
