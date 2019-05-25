@@ -30,14 +30,10 @@ class GroupsController extends Controller {
 	    'homeworks' => $homeworks,
 	]);
     }
-    public function delete(Group $group, Request $request){
-	$users = $group->students;
-	$users->delete();
-	return view('group.index', [
-	    'users' => $users,
-	    'owners' => $owners,
-	    'group' => $group,
-	    'homeworks' => $homeworks,
-	]);
+
+    public function delete(Group $group, Request $request) {
+	$group->students()->delete();
+	return redirect(route('group.index'));
     }
+
 }
