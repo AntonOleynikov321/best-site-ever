@@ -58,4 +58,4 @@ Route::get('/forums/{forum}','ForumsController@show')->name('forum_show');
 
 Route::get('/{group}/materials','MaterialsController@show')->name('materials_show');
 
-Route::post('/invites/{group}','InvitesController@inviteUser')->name('invite_student');
+Route::post('/invites/{user}','InvitesController@inviteUser')->name('invite_student');
