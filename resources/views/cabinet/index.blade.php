@@ -16,7 +16,6 @@
         <div class="col-md-10 col-md-offset-1" id="groups">
             <div class="panel panel-default" >
                 <div class="panel-heading">Как студент:</div>
-                
                 @foreach ($students_group as $student_group)
                 <ul>
                     <li>  <form>

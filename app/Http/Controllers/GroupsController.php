@@ -31,9 +31,11 @@ class GroupsController extends Controller {
 	]);
     }
 
-    public function delete(Group $group, Request $request) {
-	$group->students()->delete();
-	return redirect(route('group.index'));
-    }
+//    public function delete(Group $group, Request $request) {
+//	
+//	var_dump($group->students);
+//	//$group->students()->detach(4);
+//	//return redirect(route('group.index'));
+//    }
 
 }

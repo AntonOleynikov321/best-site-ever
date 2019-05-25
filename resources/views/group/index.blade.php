@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div id="participants" class="panel panel-default">
+   
     <div class="panel-heading">Участники: 
         <!--        TODO добавление участника-->
         <button type="submit" class="btn btn-success"> 
@@ -8,10 +9,11 @@
         </button></div>
     <ul>
         <li><a href="#"><h4>{{$owners->name}}</h4></a></li>
+	
         @foreach ($users as $user)
 	<ul>
 	    <li><p>{{$user->name}}</p>
-		<form action="{{route('student_delete',$user->id)}}" method="POST">{{ csrf_field() }}{{ method_field('DELETE') }}<input type="submit" name="del" value="del"></form></li>
+		<form action="{{route('student_delete',$user->id)}}" method="POST">{{ csrf_field() }}{{ method_field('DELETE') }}<input type="submit" name="del" value="del"><input type="hidden" name="user_id" value="{{ $user->id }}"></form></li>
 
 	</ul>
 	@endforeach
