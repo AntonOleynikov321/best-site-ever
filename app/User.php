@@ -33,8 +33,11 @@ class User extends Authenticatable {
         return $this->belongsToMany(Group::class);
     }
 
-    public function hws() {
-        return $this->hasMany(Hw::class);
+    /**
+     * Получить все задачи пользователя.
+     */
+    public function groups() {
+        return $this->hasMany(Group::class);
     }
 
 }
