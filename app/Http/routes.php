@@ -28,7 +28,7 @@ Route::post('/groups','GroupsController@store')->name('group_store');
 
 Route::delete('/groups/{group}','GroupsController@destroy')->name('group_destroy');
 
-Route::post('/invites','InvitesController@student')->name('invite_student');
+Route::get('/invites/{group}','InvitesController@student')->name('add_student');
 
 Route::get('/{group}/forums/create','ForumsController@create')->name('forum_create');
 
