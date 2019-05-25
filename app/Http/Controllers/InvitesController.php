@@ -24,4 +24,8 @@ class InvitesController extends Controller {
 	return redirect(route('group_show', $group));
     }
 
+    public function confirm() {
+	
+    }
+
 }
