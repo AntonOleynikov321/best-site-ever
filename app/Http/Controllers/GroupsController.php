@@ -16,22 +16,8 @@ class GroupsController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request, Group $groups) {
-        $groups = Group::all();
-        return view('groups.index', [
-            'groups' => $groups,
-        ]);
-    }
-
+    
     public function create(Group $groups) {
-
-
         return view('groups.create', [
             'groups' => $groups,
         ]);
@@ -44,7 +30,6 @@ class GroupsController extends Controller {
         $group = new Group();
         $group->name = $request->name;
         $group->owner_id = $request->user()->id;
-
         $group->save();
         return redirect(route('home_index'));
     }
