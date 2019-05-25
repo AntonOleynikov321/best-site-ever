@@ -38,15 +38,13 @@ Route::get('/{group}/forums/create','ForumsController@create')->name('forum_crea
 
 Route::post('/{group}/forums','ForumsController@store')->name('forum_store');
 
-
 Route::delete('/forums/{forum}','ForumsController@destroy')->name('forum_destroy');
-
 
 Route::get('/{group}/hws/create','HwsController@create')->name('hws_create');
 
 Route::post('/{group}/hws','HwsController@store')->name('hws_store');
 
-Route::delete('/hws/{hw}','HwsController@destroy')->name('hws_destroy');
+Route::delete('/hws/{hw}','HwsController@delete')->name('hws_destroy');
 
 Route::get('/{group}/materials/create','MaterialsController@create')->name('materials_create');
 
