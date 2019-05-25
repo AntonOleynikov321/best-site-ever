@@ -6,33 +6,37 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Group;
 use App\User;
-use App\Group;
 use App\Hw;
-class GroupsController extends Controller
-{
+
+class GroupsController extends Controller {
+
     public function __construct() {
 	$this->middleware('auth');
     }
 
     public function show(Group $group, Request $request) {
-	$users=$group->students;
-	$owners=$group->owner;
+	$users = $group->students;
+	$owners = $group->owner;
+	$homeworks = $request->user()->hws()->get();
 //	$user = $request->user();
 //	$teachers_group = $user->teach_groups;
 //	$students_group = $user->student_groups;
 
 
-	return view('groups.index', [
+	return view('group.index', [
 	    'users' => $users,
-	    'owners'=> $owners,
+	    'owners' => $owners,
+	    'group' => $group,
+	    'homeworks' => $homeworks,
 	]);
-    
-    public function show(Request $request, Group $group) {
-      
-        $homeworks= $request->user()->hws()->get();
-        return view('group.index', [
-            'group'=>$group,
-            'homeworks' => $homeworks,
-        ]);
+    }
+    public function delete(Group $group, Request $request){
+	$users = $group->students->delete();
+	return view('group.index', [
+	    'users' => $users,
+	    'owners' => $owners,
+	    'group' => $group,
+	    'homeworks' => $homeworks,
+	]);
     }
 }

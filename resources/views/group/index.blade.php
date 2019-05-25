@@ -7,18 +7,16 @@
             <i class="fa fa-plus"></i> 
         </button></div>
     <ul>
-        <li><a href="#"><h4>*Создатель группы*</h4></a></li>
-        <!--        TODO foreach для вывода всех участников -->
-        <li><a href="#">*участник*</a></li>
-        <li><a href="#">*участник*</a></li>
-        <li><a href="#">*участник*</a></li>
-        <li><a href="#">*участник*</a></li>
-        <li><a href="#">*участник*</a></li>
-        <li><a href="#">*участник*</a></li>
-        <li><a href="#">*участник*</a></li>
-        <li><a href="#">*участник*</a></li>
-        <li><a href="#">*участник*</a></li>
-        <li><a href="#">*участник*</a></li>
+        <li><a href="#"><h4>{{$owners->name}}</h4></a></li>
+        @foreach ($users as $user)
+	<ul>
+	      
+		{{ csrf_field() }}
+		<li><p>{{$user->name}}</p>
+		    <form action="{{route('student_delete',$user->id)}}"><input type="submit" name="del" value="del"></form></li>
+	    
+	</ul>
+	@endforeach
     </ul>
 </div>
 <div id="aboutGroup">
