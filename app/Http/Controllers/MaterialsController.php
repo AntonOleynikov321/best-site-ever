@@ -15,17 +15,22 @@ class MaterialsController extends Controller {
     }
 
     public function show(Group $group) {
-        $materials=$group->materials;
-        return view('group.materials.show', [
+        $materials = $group->materials;
+        return view('materials.show', [
             'materials' => $materials,
+            'group' => $group,
         ]);
     }
 
     public function create(Group $group) {
-        return view(route('materials_create',$group->id));
+        $materials = $group->materials;
+        return view('materials.create', [
+            'materials' => $materials,
+            'group' => $group,
+        ]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request, Group $group) {
 
 
         if ($request->isMethod('post')) {
@@ -46,12 +51,14 @@ class MaterialsController extends Controller {
 //            'name' => $request->name,
 //            'text' => $request->text,
 //        ]);        
-
+        $user = $request->user();
         $materials = new Materials;
         $materials->name = $request->name;
         $materials->text = $request->text;
+        $materials->group_id = $group->id;
+        $materials->user_id = $user['id'];
         $materials->save();
-        return redirect('/materials/create');
+        return redirect(route('materials_show',$group->id));
     }
 
     public function destroy(Materials $material) {

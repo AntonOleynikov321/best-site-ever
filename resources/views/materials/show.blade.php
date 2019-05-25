@@ -36,6 +36,9 @@
         </div>
     </div>
     @endif
-   <!--todo кнопка ссылка на форму-->
+    <!--todo кнопка ссылка на форму-->
+    <button type="submit" class="btn btn-primary bg-danger">
+        <a href="{{route('materials_create', $group->id)}}"><i class="fa fa-primary"></i> Добавить</a>
+    </button>
 </div>
 @endsection

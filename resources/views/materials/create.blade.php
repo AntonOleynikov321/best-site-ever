@@ -37,7 +37,7 @@
         </div>
     </div>
     @endif
-    <form action="{{ url('/materials') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <form action="{{route('materials_show',$group->id)}}" method="post" class="form-horizontal" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="materials" class="col-sm-3 control-label">Лекция</label>
