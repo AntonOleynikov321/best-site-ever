@@ -15,7 +15,7 @@ class GroupsController extends Controller {
 
     public function show(Request $request,Group $group) {
         $homeworks= $request->user()->hws()->get();
-        return view('groups.index', [
+        return view('group.index', [
             'group'=>$group,
             'homeworks' => $homeworks,
         ]);
