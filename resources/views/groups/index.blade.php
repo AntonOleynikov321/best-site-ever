@@ -139,4 +139,8 @@
         </div>
     </div>
 
+<<<<<<< .mine
     @endsection
+=======
+@endsection
+>>>>>>> .theirs
