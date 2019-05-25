@@ -46,7 +46,7 @@ class HwsController extends Controller {
         ]));
     }
 
-    public function delete(Hw $homework, Request $request, Group $group) {
+    public function destroy(Hw $homework, Request $request, Group $group) {
         $homework->id = $request->id;
         $homework->delete();
         return redirect(route('group_show',[
