@@ -19,10 +19,9 @@ class InvitesController extends Controller {
 
     public function inviteUser(Group $group, Request $request) {
 	$login = $request->login;
-	$user = User::all()->where('name', $login);
+	$user = User::all()->where('name', $login)[0];
 	var_dump($user);
-	exit();
-	$group->attach($user);
+	$group->students()->save($user);
     }
 
 }
