@@ -24,23 +24,19 @@ Route::get('/', 'HomeController@index')->name('home_index');
 
 Route::get('/groups/{group}','GroupsController@show')->name('group_show');
 
+Route::get('/group/create','GroupsController@create')->name('group_create');
 
-
-Route::get('/groups/create','GroupsController@create')->name('group_create');
-
-Route::post('/groups','GroupsController@store')->name('group_store');
+Route::post('/group','GroupsController@store')->name('group_store');
 
 Route::delete('/groups/{group}','GroupsController@destroy')->name('group_destroy');
 
-Route::post('/invites','InvitesController@student')->name('invite_student');
+Route::get('/invites','InvitesController@student')->name('add_student');
 
 Route::get('/{group}/forums/create','ForumsController@create')->name('forum_create');
 
 Route::post('/{group}/forums','ForumsController@store')->name('forum_store');
 
-
 Route::delete('/forums/{forum}','ForumsController@destroy')->name('forum_destroy');
-
 
 Route::get('/{group}/hws/create','HwsController@create')->name('hws_create');
 

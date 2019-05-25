@@ -24,21 +24,20 @@ class User extends Authenticatable {
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
+
     public function teach_groups() {
-        return $this->hasMany(Group::class,'owner_id');
+        return $this->hasMany(Group::class, 'owner_id');
     }
-    
+
     public function student_groups() {
         return $this->belongsToMany(Group::class);
     }
 
     /**
-     * ĞŸĞ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑŒ Ğ²ÑĞµ Ğ·Ğ°Ğ´Ğ°Ñ‡Ğ¸ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ.
+     * Ïîëó÷èòü âñå çàäà÷è ïîëüçîâàòåëÿ.
      */
     public function groups() {
         return $this->hasMany(Group::class);
     }
 
 }
-
