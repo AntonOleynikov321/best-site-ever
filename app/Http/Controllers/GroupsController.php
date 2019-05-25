@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Group;
+use App\Hw;
 
 class GroupsController extends Controller {
 
@@ -11,8 +13,12 @@ class GroupsController extends Controller {
         $this->middleware('auth');
     }
 
-    public function show() {
-        return view('groups.index');
+    public function show(Request $request,Group $group) {
+        $homeworks= $request->user()->hws()->get();
+        return view('groups.index', [
+            'group'=>$group,
+            'homeworks' => $homeworks,
+        ]);
     }
 
 }
