@@ -21,4 +21,8 @@ class Group extends Model
         return $this->hasMany(Hw::class);
     }
 
+    public function materials()
+  {
+    return $this->hasMany(Materials::class);
+  }
 }
