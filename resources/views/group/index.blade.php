@@ -10,11 +10,9 @@
         <li><a href="#"><h4>{{$owners->name}}</h4></a></li>
         @foreach ($users as $user)
 	<ul>
-	      
-		{{ csrf_field() }}
-		<li><p>{{$user->name}}</p>
-		    <form action="{{route('student_delete',$user->id)}}"><input type="submit" name="del" value="del"></form></li>
-	    
+	    <li><p>{{$user->name}}</p>
+		<form action="{{route('student_delete',$user->id)}}" method="POST">{{ csrf_field() }}{{ method_field('DELETE') }}<input type="submit" name="del" value="del"></form></li>
+
 	</ul>
 	@endforeach
     </ul>
@@ -44,7 +42,7 @@
             <div class="panel panel-default" >
                 <div class="panel-heading"><button class="w3-bar-item w3-button" onclick="openCase('Materials')">Материалы</button>
                     <button class="w3-bar-item w3-button" onclick="openCase('Homework')">Домашнее задание</button>
-                     <button class="w3-bar-item w3-button" onclick="openCase('Forum')">Обсуждения</button>
+		    <button class="w3-bar-item w3-button" onclick="openCase('Forum')">Обсуждения</button>
                     <!--TODO форма добавления материалов-->
                     <button type="submit" class="btn btn-success cases" id="btnMaterials" style="float:right"> 
                         <i class="fa fa-plus">Добавить лецию</i> 
@@ -106,24 +104,24 @@
                                     <form action="{{route('hws_show',$homework->id)}}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('GET') }}
-                                    <button type="submit" class="btn btn-info">
-                                        <i class="fa fa-book"></i> Читать
-                                    </button>
+					<button type="submit" class="btn btn-info">
+					    <i class="fa fa-book"></i> Читать
+					</button>
                                     </form>
                                 </td>
                                 <td>
-<!--                                    <button type="submit" class="btn btn-warning">
-                                        <i class="fa fa-pencil"></i>Редактировать
-                                    </button>-->
-                               
+				    <!--                                    <button type="submit" class="btn btn-warning">
+									    <i class="fa fa-pencil"></i>Редактировать
+									</button>-->
+
                                 </td>
                                 <td>
                                     <form action="{{route('hws_destroy',$homework->id, $group->id)}}" method="POST">
-                                      {{ csrf_field() }}
-                                       {{ method_field('DELETE') }}
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fa fa-trash"></i> Удалить
-                                    </button>
+					{{ csrf_field() }}
+					{{ method_field('DELETE') }}
+					<button type="submit" class="btn btn-danger">
+					    <i class="fa fa-trash"></i> Удалить
+					</button>
                                     </form>
                                 </td>
                             </tr>
