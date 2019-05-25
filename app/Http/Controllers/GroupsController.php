@@ -18,10 +18,8 @@ class GroupsController extends Controller {
         $this->middleware('auth');
     }
     
-    public function create(Group $groups) {
-        return view('group.create', [
-            'groups' => $groups,
-        ]);
+    public function create() {
+        return view('group.create');
     }
 
     public function store(Request $request) {
