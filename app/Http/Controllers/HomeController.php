@@ -6,7 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Group;
 use App\User;
-
+use App\Http\Controllers\GroupsController;
 class HomeController extends Controller {
 
     public function __construct() {
