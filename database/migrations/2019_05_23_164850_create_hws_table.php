@@ -16,6 +16,7 @@ class CreateHwsTable extends Migration
             $table->integer('group_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('group_id')->references('id')->on('groups');
+            $table->timestamps();
         });
     }
 

@@ -20,5 +20,4 @@ class GroupsController extends Controller {
             'homeworks' => $homeworks,
         ]);
     }
-
 }
