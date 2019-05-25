@@ -32,9 +32,13 @@ class User extends Authenticatable {
     public function student_groups() {
         return $this->belongsToMany(Group::class);
     }
+    
+    public function invite_groups() {
+        return $this->belongsToMany(Group::class, 'invites_students');
+    }
 
     /**
-     * Получить все задачи пользователя.
+     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
      */
     public function groups() {
         return $this->hasMany(Group::class);

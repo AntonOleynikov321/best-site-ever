@@ -16,6 +16,10 @@ class Group extends Model
     public function students() {
         return $this->belongsToMany(User::class);
     }
+    
+    public function invite_users() {
+	return $this->belongsToMany(User::class, 'invites_students');
+    }
 
     public function hws() {
         return $this->hasMany(Hw::class);
