@@ -14,10 +14,9 @@ class MaterialsController extends Controller {
         $this->middleware('auth');
     }
 
-    public function show(Request $request) {
-        $materials = new Materials;
-        $materials = Materials::all();
-        return view('materials/create', [
+    public function show(Group $group) {
+        $materials=$group->materials;
+        return view('group.materials.show', [
             'materials' => $materials,
         ]);
     }
@@ -35,21 +34,14 @@ class MaterialsController extends Controller {
                 $filename = $request->file('file')->getClientOriginalName();
                 $filename = $request->name . $filename;
                 $file = $request->file('file');
-                $file->move(public_path('storage/app/public') . '/path', $filename);
+                $file->move(public_path('storage/app/public/materials'), $filename);
             }
         }
-//        if ($request->hasFile('file_materials')) {
-        //$filename = $request->file('file_materials')->getClientOriginalName();
-        //$filename = $request->name . $filename;
-        //$file = $request->file('file_materials');
-//            $file->move('storage/app/public/materials', $filename);
-//        }
 
         $this->validate($request, [
             'name' => 'required|max:255',
             'text' => 'required',
         ]);
-        echo asset('storage/file_materials');
 //        $request->group()->materials()->create([
 //            'name' => $request->name,
 //            'text' => $request->text,
