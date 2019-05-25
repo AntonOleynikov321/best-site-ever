@@ -14,7 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         body {
             font-family: 'Lato';
@@ -44,6 +44,18 @@
             position: relative;
             top:-40px;
             
+        }
+        #addHomework{
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #addHomework form{
+            padding:  5px 30px;
+            text-align: center;    
+        }
+        #addHomework textarea{
+            width: 100%;
         }
     </style>
 </head>
