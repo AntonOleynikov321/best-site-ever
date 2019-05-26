@@ -21,7 +21,7 @@
                             <div>{{ $material->name }}</div>
                         </td>
                         <td>
-                            <form action="{{url($material->id)}} " method="post">
+                            <form action="{{route('materials_destroy',$material->id)}} " method="post">
                                 {{csrf_field()}}
                                 {{method_field('delete')}}
                                 <button type="submit" class="btn btn-default bg-danger">
@@ -36,6 +36,11 @@
         </div>
     </div>
     @endif
-   <!--todo кнопка ссылка на форму-->
+    <!--todo кнопка ссылка на форму-->
+    <button type="submit" class="btn btn-primary bg-danger">
+        <a href="{{route('materials_create',$group->id)}}">
+            <i class="fa fa-primary"></i> Добавить
+        </a>
+    </button>
 </div>
 @endsection

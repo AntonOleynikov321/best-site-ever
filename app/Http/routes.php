@@ -46,7 +46,7 @@ Route::get('/{group}/materials/create','MaterialsController@create')->name('mate
 
 Route::post('/{group}/materials','MaterialsController@store')->name('materials_store');
 
-Route::delete('/{material}','MaterialsController@destroy')->name('materials_destroy');
+Route::delete('materials/{material}','MaterialsController@destroy')->name('materials_destroy');
 
 Route::post('/{hw}','HwsController@upload')->name('hws_upload');
 
