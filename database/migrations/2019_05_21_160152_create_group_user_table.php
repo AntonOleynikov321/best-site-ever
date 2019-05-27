@@ -3,19 +3,18 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersGroupsTable extends Migration
-{
+class CreateGroupUserTable extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('users_groups', function (Blueprint $table) {
+    public function up() {
+        Schema::create('group_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('role');
             $table->integer('user_id')->unsigned();
+            $table->integer('confirmed');
             $table->integer('group_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('group_id')->references('id')->on('groups');
@@ -27,8 +26,8 @@ class CreateUsersGroupsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::drop('users_groups');
+    public function down() {
+        Schema::drop('group_user');
     }
+
 }

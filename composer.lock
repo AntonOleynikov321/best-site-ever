@@ -159,7 +159,19 @@
                 "singularize",
                 "string"
             ],
+<<<<<<< HEAD
             "time": "2017-07-22 12:18:28"
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            "time": "2017-07-22 12:18:28"
+=======
+            "time": "2015-11-06 14:35:42"
+>>>>>>> bd1963a96587d099ea637de2f880b1c422d39eb2
+=======
+            "time": "2018-01-09T20:05:19+00:00"
+>>>>>>> 6d9d1bb7061286755b18ea1c3fd67dbd56ce6b6b
+>>>>>>> f232e9cff891e4a28aa88dd43c1b31bf745161a2
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -2181,7 +2193,19 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
+<<<<<<< HEAD
             "time": "2019-04-30 17:48:53"
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            "time": "2019-04-30 17:48:53"
+=======
+            "time": "2017-11-10 14:09:06"
+>>>>>>> bd1963a96587d099ea637de2f880b1c422d39eb2
+=======
+            "time": "2019-04-30T17:48:53+00:00"
+>>>>>>> 6d9d1bb7061286755b18ea1c3fd67dbd56ce6b6b
+>>>>>>> f232e9cff891e4a28aa88dd43c1b31bf745161a2
         },
         {
             "name": "phpdocumentor/type-resolver",
