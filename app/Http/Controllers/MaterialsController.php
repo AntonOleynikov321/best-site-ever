@@ -58,13 +58,10 @@ class MaterialsController extends Controller {
         ]);
     }
 
-    public function destroy(Materials $material, Group $group) {
-        $material->delete();
-        $materials = $group->materials;
-        return view('materials.show', [
-            'materials' => $materials,
-            'group' => $group,
-        ]);
+    public function destroy(Materials $material) {
+        $group=$material->group;
+        $material->delete();        
+        return redirect(route('materials_show',$group->id));
     }
 
 }
