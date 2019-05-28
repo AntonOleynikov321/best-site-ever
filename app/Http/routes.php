@@ -20,19 +20,15 @@ Route::auth();
 Route::get('/', 'HomeController@index')->name('home_index');
 
 //Route::resource('groups','GroupsController')->name();//TODO что делать с ресурсом хз
-
+Route::get('/groups/create','GroupsController@create')->name('group_create');
 
 Route::get('/groups/{group}','GroupsController@show')->name('group_show');
-
-
-
-Route::get('/groups/create','GroupsController@create')->name('group_create');
 
 Route::post('/groups','GroupsController@store')->name('group_store');
 
 Route::delete('/groups/{group}','GroupsController@destroy')->name('group_destroy');
 
-Route::post('/invites','InvitesController@student')->name('invite_student');
+Route::get('/invites/{group}','InvitesController@student')->name('add_student');
 
 Route::get('/{group}/forums/create','ForumsController@create')->name('forum_create');
 
@@ -62,4 +58,4 @@ Route::get('/forums/{forum}','ForumsController@show')->name('forum_show');
 
 Route::get('/{group}/materials','MaterialsController@show')->name('materials_show');
 
-Route::post('/invites/{group}','InvitesController@inviteUser')->name('invite_student');
+Route::post('/invites/{user}','InvitesController@inviteUser')->name('invite_student');
