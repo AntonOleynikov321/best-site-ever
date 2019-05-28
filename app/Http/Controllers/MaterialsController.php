@@ -44,7 +44,6 @@ class MaterialsController extends Controller {
             'text' => 'required',
         ]);
         $user = $request->user();
-        $user = $request->user();
         $materials = new Materials();
         $materials->name = $request->name;
         $materials->text = $request->text;
