@@ -22,7 +22,7 @@ class MaterialsController extends Controller {
         ]);
     }
 
-    public function create(Group $group) {
+    public function create(Materials $materials, Group $group) {
         $materials = $group->materials;
         return view('materials.create', [
             'materials' => $materials,
@@ -31,39 +31,41 @@ class MaterialsController extends Controller {
     }
 
     public function store(Request $request, Group $group) {
-
-
         if ($request->isMethod('post')) {
-
-            if ($request->hasFile('file')) {
-                $filename = $request->file('file')->getClientOriginalName();
+            if ($request->hasFile('file_name')) {
+                $filename = $request->file('file_name')->getClientOriginalName();
                 $filename = $request->name . $filename;
-                $file = $request->file('file');
-                $file->move(public_path('storage/app/public/materials'), $filename);
+                $file = $request->file('file_name');
+                $file->move('storage/app/public/materials', $filename);
             }
         }
-
         $this->validate($request, [
             'name' => 'required|max:255',
             'text' => 'required',
         ]);
-//        $request->group()->materials()->create([
-//            'name' => $request->name,
-//            'text' => $request->text,
-//        ]);        
         $user = $request->user();
-        $materials = new Materials;
+        $user = $request->user();
+        $materials = new Materials();
         $materials->name = $request->name;
         $materials->text = $request->text;
+        $materials->file_name = $filename;
         $materials->group_id = $group->id;
         $materials->user_id = $user['id'];
         $materials->save();
-        return redirect(route('materials_show',$group->id));
+        $materials = $group->materials;
+        return view('materials.show', [
+            'materials' => $materials,
+            'group' => $group,
+        ]);
     }
 
-    public function destroy(Materials $material) {
+    public function destroy(Materials $material, Group $group) {
         $material->delete();
-        return redirect('/materials/create');
+        $materials = $group->materials;
+        return view('materials.show', [
+            'materials' => $materials,
+            'group' => $group,
+        ]);
     }
 
 }

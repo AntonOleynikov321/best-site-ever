@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Materials extends Model
 {
     protected $fillable = [
-        'name','text','file',
+        'name','text','file_name',
         ];
     
     /**

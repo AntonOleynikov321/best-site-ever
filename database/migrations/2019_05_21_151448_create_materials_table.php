@@ -16,8 +16,11 @@ class CreateMaterialsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('text');
-            $table->string('file');
+            $table->string('file_name');
+            $table->integer('user_id')->unsigned();
             $table->integer('group_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('group_id')->references('id')->on('groups');
             $table->timestamps();
         });
     }
